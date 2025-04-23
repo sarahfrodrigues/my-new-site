@@ -1,13 +1,13 @@
 ---
-title: Assignment 2 - Static Personal Blog Website
-date: 2025-04-24
+title: Assignment 3 - Deployment and Integration of LLM
+date: 2025-04-23
 description: This assignment focuses on the creation and deployment of a static personal blog website using Hugo, a fast and flexible static site generator. The project involves setting up a customizable site structure, selecting and integrating a theme, and documenting the development process using Markdown. Git is used for version control to ensure meaningful and traceable progress throughout the development cycle. 
-slug: assignment-2
+slug: assignment-3
 tags: 
-    - Static Blog
+    - LLM
 categories:
     - Assignment
-image: cover2.jpg
+image: cover3.jpg
 ---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.

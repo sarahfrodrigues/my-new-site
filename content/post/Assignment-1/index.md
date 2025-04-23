@@ -2,7 +2,7 @@
 title: Assignment 1 - Command Line & Documentation
 description: This assignment focuses on implementing matrix multiplication in both C (a compiled language) and Python (an interpreted language) to compare their performance and development experiences. Alongside the code, it emphasizes the importance of clear, reproducible documentation using Markdown. Through this project, students will deepen their understanding of Unix/Linux command-line tools, gain hands-on experience in technical writing, and explore the practical differences between programming paradigms—all while having a little fun along the way.
 slug: assignment-1
-date: 2025-04-24 00:00:00+0000
+date: 2025-04-23 00:00:00+0000
 image: cover1.jpg
 categories:
     - Assignment
