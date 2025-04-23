@@ -1,16 +1,16 @@
 ---
 title: Assignment 1 - Command Line & Documentation
 description: Welcome to Hugo Theme Stack
-slug: hello-world
-date: 2022-03-06 00:00:00+0000
-image: cover.jpg
+slug: assignment-1
+date: 2025-04-24 00:00:00+0000
+image: cover1.jpg
 categories:
     - Assignment
 tags:
     - Documentation
     - Markdown
     - Python
-weight: 1       # You can add weight to some posts to override the default sorting (date descending)
+#weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 
 ## Table of Contents

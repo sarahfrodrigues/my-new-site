@@ -1,15 +1,13 @@
 ---
-title: Markdown Syntax Guide
-date: 2023-09-07
-description: Sample article showcasing basic Markdown syntax and formatting for HTML elements.
+title: Assignment 2 - Static Personal Blog Website
+date: 2025-04-24
+description: This assignment focuses on the creation and deployment of a static personal blog website using Hugo, a fast and flexible static site generator. The project involves setting up a customizable site structure, selecting and integrating a theme, and documenting the development process using Markdown. Git is used for version control to ensure meaningful and traceable progress throughout the development cycle. 
+slug: assignment-2
 tags: 
-    - markdown
-    - css
-    - html
-    - themes
+    - Static Blog
 categories:
-    - themes
-    - syntax
+    - Assignment
+image: cover2.jpg
 ---
 
 This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
