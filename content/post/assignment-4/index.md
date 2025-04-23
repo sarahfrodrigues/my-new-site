@@ -1,22 +1,13 @@
 ---
-title: Image gallery
-description: Create beautiful interactive image gallery using Markdown
-date: 2023-08-26 00:00:00+0000
-image: 2.jpg
+title: Assignment 4 - Developing an Application with the Aid of LLM
+description: This assignment involves the design and development of a software application aligned with your academic or research focus. Large language models (LLMs) are to be leveraged throughout the development process to enhance productivity and problem-solving. The final software must be compiled into an executable, demonstrating practical application. 
+date: 2025-02-26 00:00:00+0000
+image: cover4.jpg
+tags: 
+    - LLM
+    - Problem-solving
+categories:
+    - Assignment
 ---
 
-Hugo theme Stack supports the creation of interactive image galleries using Markdown. It's powered by [PhotoSwipe](https://photoswipe.com/) and its syntax was inspired by [Typlog](https://typlog.com/).
-
-To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo's page bundle feature to read the dimensions of the image. **External images are not supported.**
-
-## Syntax
-
-```markdown
-![Image 1](1.jpg) ![Image 2](2.jpg)
-```
-
-## Result
-
-![Image 1](1.jpg) ![Image 2](2.jpg)
-
-> Photo by [mymind](https://unsplash.com/@mymind) and [Luke Chesser](https://unsplash.com/@lukechesser) on [Unsplash](https://unsplash.com/)
+hello

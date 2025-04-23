@@ -1,40 +1,14 @@
 ---
-title: Math Typesetting
-description: Math typesetting using KaTeX
-date: 2023-08-24 00:00:00+0000
-math: true
+title: Assignment 3 - Deployment and Integration of LLM
+description: This assignment focuses on deploying and using both online and local large language models (LLMs) to enhance development workflows. It involves configuring an API from an online LLM provider (like OpenAI), installing and running a local LLM using Ollama, and integrating both into an IDE such as VSCode or PyCharm. The goal is to demonstrate how these tools can assist in tasks like code generation and analysis.
+date: 2025-03-24 
+tags: 
+    - LLM
+    - Ollama
+    - Code Generation
+categories:
+    - Assignment
+image: cover3.jpg
 ---
 
-Stack has built-in support for math typesetting using [KaTeX](https://katex.org/).
-
-**It's not enabled by default side-wide,** but you can enable it for individual posts by adding `math: true` to the front matter. Or you can enable it side-wide by adding `math = true` to the `params.article` section in `config.toml`.
-
-## Inline math
-
-This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
-
-```markdown
-$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
-```
-
-## Block math
-
-$$
-    \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
-
-```markdown
-$$
-    \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } } 
-$$
-```
-
-$$
-    f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
-$$
-
-```markdown
-$$
-    f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
-$$
-```
+hey
