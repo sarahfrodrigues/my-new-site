@@ -4,145 +4,125 @@ date: 2025-04-23
 description: This assignment focuses on the creation and deployment of a static personal blog website using Hugo, a fast and flexible static site generator. The project involves setting up a customizable site structure, selecting and integrating a theme, and documenting the development process using Markdown. Git is used for version control to ensure meaningful and traceable progress throughout the development cycle. 
 slug: assignment-2
 tags: 
-    - LLM
+    - Static Sites
+    - Hugo
+    - GitHub Pages
 categories:
     - Assignment
 image: cover2.jpg
 ---
 
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
+## Introduction to Static Sites
 
-<!--more-->
+Static websites consist of fixed content delivered to users exactly as stored, unlike dynamic websites that generate content on-the-fly. Benefits include:
 
-## Headings
+- **Performance**: Faster load times with pre-built pages
+- **Security**: Reduced attack surface with no server-side processing
+- **Scalability**: Easier to handle traffic spikes
+- **Cost-effectiveness**: Lower hosting requirements
 
-The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
+## Why Hugo?
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+Hugo is a modern static site generator written in Go, offering:
 
-## Paragraph
+- **Blazing fast build times** (often <1ms per page)
+- **Rich theming system** with hundreds of community themes
+- **Flexible content organization** with sections and taxonomies
+- **Built-in development server** with live reload
+- **Markdown-based content** with front matter support
 
-Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.
+## Installation Guide
 
-Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.
+### Windows Installation
 
-## Blockquotes
+1. **Download the Extended version**:
+   - Visit [Hugo Releases](https://github.com/gohugoio/hugo/releases)
+   - Under "Assets", download `hugo_extended_*.msi`
 
-The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a `footer` or `cite` element, and optionally with in-line changes such as annotations and abbreviations.
+2. **Run the installer**:
+   - Double-click the downloaded `.msi` file
+   - Follow the installation wizard (recommend keeping default options)
 
-### Blockquote without attribution
+3. **Verify installation**:
+   ```powershell
+   hugo version
+  ```
+You should see output like hugo v0.xxx windows/amd64 Extended confirming the Extended build is installed.
 
-> Tiam, ad mint andaepu dandae nostion secatur sequo quae.
-> **Note** that you can use *Markdown syntax* within a blockquote.
-
-### Blockquote with attribution
-
-> Don't communicate by sharing memory, share memory by communicating.<br>
-> — <cite>Rob Pike[^1]</cite>
-
-[^1]: The above quote is excerpted from Rob Pike's [talk](https://www.youtube.com/watch?v=PAAkCSZUG1c) during Gopherfest, November 18, 2015.
-
-## Tables
-
-Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.
-
-   Name | Age
---------|------
-    Bob | 27
-  Alice | 23
-
-### Inline Markdown within tables
-
-| Italics   | Bold     | Code   |
-| --------  | -------- | ------ |
-| *italics* | **bold** | `code` |
-
-| A                                                        | B                                                                                                             | C                                                                                                                                    | D                                                 | E                                                          | F                                                                    |
-|----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------|
-| Lorem ipsum dolor sit amet, consectetur adipiscing elit. | Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex. | Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus | Proin sit amet velit nec enim imperdiet vehicula. | Ut bibendum vestibulum quam, eu egestas turpis gravida nec | Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien |
-
-## Code Blocks
-### Code block with backticks
-
-```html
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Example HTML5 Document</title>
-</head>
-<body>
-  <p>Test</p>
-</body>
-</html>
+## Project Setup
+1. **Initialize Your Site**
+```bash
+hugo new site my-blog
+cd my-blog
+git init
 ```
-
-### Code block indented with four spaces
-
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Example HTML5 Document</title>
-    </head>
-    <body>
-      <p>Test</p>
-    </body>
-    </html>
-
-### Diff code block
-
-```diff
-[dependencies.bevy]
-git = "https://github.com/bevyengine/bevy"
-rev = "11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13"
-- features = ["dynamic"]
-+ features = ["jpeg", "dynamic"]
+2. **Add a Theme (Using Stack Theme)**
+```bash
+git submodule add https://github.com/CaiJimmy/hugo-theme-stack themes/stack
 ```
+Add to config.toml:
 
-### One line code block
-
-```html
-<p>A paragraph</p>
+```toml
+theme = "stack"
 ```
+3. **Configure Basic Settings**
+Edit config.toml with essential parameters:
 
-## List Types
+```toml
+baseURL = "https://yourusername.github.io/"
+languageCode = "en-us"
+title = "My Personal Blog"
+```
+## Content Creation
+### Creating Posts
+Generate a new post:
 
-### Ordered List
+```bash
+hugo new posts/assignment-1.md
+```
+Example post structure:
 
-1. First item
-2. Second item
-3. Third item
+```markdown
+---
+title: "Assignment 1: Static Site Setup"
+date: 2025-04-23T15:30:00Z
+draft: false
+tags: ['Hugo', 'Static Sites']
+categories: ['Assignments']
+description: "Initial setup of my static blog using Hugo"
+---
+## Introduction
+Content goes here...
+```
+### Additional Pages
+Create an about page:
 
-### Unordered List
+```bash
+hugo new about.md
+```
+## GitHub Pages Deployment
+1. Create a GitHub repository named yourusername.github.io
 
-* List item
-* Another item
-* And another item
+2. Add remote and push:
 
-### Nested list
+```bash
+git remote add origin git@github.com:yourusername/yourusername.github.io.git
+git push -u origin main
+```
+3. Enable GitHub Pages in repository settings (use gh-pages branch)
 
-* Fruit
-  * Apple
-  * Orange
-  * Banana
-* Dairy
-  * Milk
-  * Cheese
+## Version Control Best Practices
+Make atomic commits with clear messages:
 
-## Other Elements — abbr, sub, sup, kbd, mark
+```bash
+git add .
+git commit -m "Add Stack theme and configure base settings"
+git push origin main
+```
+Use feature branches for significant changes:
 
-<abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
-
-H<sub>2</sub>O
-
-X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
-
-Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
-
-Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+```bash
+git checkout -b feature/new-layout
+# Make changes
+git push origin feature/new-layout
+```
