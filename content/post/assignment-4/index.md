@@ -13,7 +13,7 @@ categories:
 # Background: My research topic
 Despite a significant decline in aviation fatal accident rates since the 1960s, recent fluctuations—such as the increase in total fatal accidents in 2024—highlight that aviation safety remains a critical concern. Effective risk management plays a foundational role in safety and relies on the timely and accurate identification of hazards. 
 
-![Figure 1: Yearly number of fatal accidents. Data source: Boeing ](images/Yearly_total_rate.png)
+![Figure 1: Yearly number of fatal accidents. Data source: Boeing ](images/Yearly_fatal_total.png)
 
 Accident and incident reports, such as those maintained by the National Transportation Safety Board ([NTSB](https://carol.ntsb.gov/)) and the Aviation Safety Reporting System ([ASRS](https://akama.arc.nasa.gov/ASRSDBOnline/QueryWizard_Filter.aspx)), serve as essential sources of information. These repositories contain rich qualitative narratives describing events and contributing factors. However, the unstructured nature of this textual data poses a major challenge for automated processing, limiting the scalability and consistency of insights derived from it.
 
