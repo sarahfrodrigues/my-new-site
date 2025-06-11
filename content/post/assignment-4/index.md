@@ -13,7 +13,9 @@ categories:
 # Background: My research topic
 Despite a significant decline in aviation fatal accident rates since the 1960s, recent fluctuations—such as the increase in total fatal accidents in 2024—highlight that aviation safety remains a critical concern. Effective risk management plays a foundational role in safety and relies on the timely and accurate identification of hazards. 
 
-![Figure 1: Yearly number of fatal accidents. Data source: Boeing ](images/Yearly_fatal_total.png)
+![Chart showing a general downward trend in fatal aviation accidents from 1990 to 2023. Data source: Airbus](images/Yearly_fatal_total.png)
+
+<small> Figure1: Yearly total fatal accidents showing a general downward trend in fatal aviation accidents from 1990 to 2023. Data source:[AIRBUS](https://accidentstats.airbus.com/fatal-accidents/) </small>
 
 Accident and incident reports, such as those maintained by the National Transportation Safety Board ([NTSB](https://carol.ntsb.gov/)) and the Aviation Safety Reporting System ([ASRS](https://akama.arc.nasa.gov/ASRSDBOnline/QueryWizard_Filter.aspx)), serve as essential sources of information. These repositories contain rich qualitative narratives describing events and contributing factors. However, the unstructured nature of this textual data poses a major challenge for automated processing, limiting the scalability and consistency of insights derived from it.
 
@@ -31,19 +33,19 @@ Current methods often fail to identify causal relationships from text, leading t
 - Implement probabilistic reasoning through Bayesian networks.
 
 ## Methodology
-1. Data Collection: Unstructured narrative reports from the NTSB and ASRS databases are used as the primary input.
+1. **Data Collection:** Unstructured narrative reports from the NTSB and ASRS databases are used as the primary input.
 
-2. Text Preprocessing: This includes steps such as tokenization, lowercasing, punctuation removal, acronym expansion, and keyword detection.
+2. **Text Preprocessing:** This includes steps such as tokenization, lowercasing, punctuation removal, acronym expansion, and keyword detection.
 
-3. Topic Modeling: Techniques such as Latent Dirichlet Allocation (LDA) are applied to identify recurring themes and contextual clusters within the corpus.
+3. **Topic Modeling:** Techniques such as Latent Dirichlet Allocation (LDA) are applied to identify recurring themes and contextual clusters within the corpus.
 
-4. Causal Relationship Extraction: rule based or deep learning Techniques.
+4. **Causal Relationship Extraction:** Rule based or deep learning Techniques.
 
-5. Graph Construction: Extracted causal pairs are assembled into a Directed Acyclic Graph (DAG), representing the directional relationships between contributing factors.
+5. **Graph Construction:** Extracted causal pairs are assembled into a Directed Acyclic Graph (DAG), representing the directional relationships between contributing factors.
 
-6. Bayesian Network Modeling: The DAG is then adapted into a probabilistic structure to perform reasoning under uncertainty and support safety decision-making.
+6. **Bayesian Network Modeling:** The DAG is then adapted into a probabilistic structure to perform reasoning under uncertainty and support safety decision-making.
 
-7. Validation and Optimization: The resulting models are evaluated for accuracy, completeness, and practical relevance to aviation safety experts.
+7. **Validation and Optimization:** The resulting models are evaluated for accuracy, completeness, and practical relevance to aviation safety experts.
 
 8. Present support decision-making in aviation safety through enhanced risk analysis and hazard identification.
 
@@ -68,10 +70,35 @@ The LLM evaluates which candidate best fits the context and returns the most app
 
 The updated acronym map is continuously enriched by storing newly discovered expansions, enhancing the system's adaptability and performance over time. This hybrid design—combining heuristic rules with LLM reasoning—enables accurate, context-sensitive acronym expansion at scale, which is essential for processing large volumes of aviation safety reports.
 
+```csharp
+[Input Text] 
+   ↓
+[Regex Acronym Detection]
+   ↓
+[Heuristic Candidate Generation]
+   ↓
+[LLM Disambiguation]
+   ↓
+[Store in Acronym Map]
+
+```
+**Prompt Design**
+```python
+prompt = (
+        f"You are given a sentence and a token. The token is ambiguous and could mean more than one thing.\n"
+        f"Your job is to choose the correct meaning based on the context.\n\n"
+        f"Context sentence: \"{context}\"\n"
+        f"Token: {token}\n"
+        f"Choices: {', '.join(candidates)}\n\n"
+        f"Which meaning fits best in the sentence? Reply with ONLY the best choice, no explanation."
+    )
+```
+
 ### Performance evaluation
 To evaluate the accuracy of acronym extraction and disambiguation in aviation safety texts, we conducted a series of controlled test cases. 
 
 1. Acronym Extraction Evaluation
+
 A total of 25 sentences were curated, each containing one aviation-specific acronym alongside its correct expansion. These were used to test the system’s ability to detect and map acronyms in structured narrative formats, such as those commonly found in aviation safety reports.
 
 Example Test Case:
@@ -111,6 +138,7 @@ After running the full set of test cases, the system achieved the following perf
     - reflects a balanced measure of overall performance.
 
 2. Acronym Disambiguation Evaluation
+
 The next stage tested the system’s ability to disambiguate acronyms that have more than one potential meaning, depending on context. This was achieved by:
 
 - Providing a setup sentence in which the acronym is explicitly defined (e.g., “The Acceptable Means of Compliance (ACM) was published.”).
@@ -151,9 +179,9 @@ disambiguation_tests = [
 
 Out of 10 disambiguation test cases:
 
-✅ 8 acronyms were correctly disambiguated.
+✅ 9 acronyms were correctly disambiguated.
 
-❌ 2 acronyms were incorrectly expanded or left unresolved.
+❌ 1 acronyms were incorrectly expanded or left unresolved.
 
 **Examples of correct matches include:**
 
@@ -166,8 +194,6 @@ Out of 10 disambiguation test cases:
 **Failures included:**
 
 - “Technicians wore grounding straps to prevent ESD.” → Expected: Electrostatic Discharge, but the expansion was not correctly substituted.
-
-- “The MTOW for the aircraft has increased by 500 kg.” → Expected: Maximum Take-off Weight, but partial or inconsistent expansion was returned.
 
 These results indicate strong performance by the disambiguation module, particularly in cases where the context provides clear semantic clues. However, further refinement is needed to handle subtle or technical uses where context is sparse or ambiguous.
 
@@ -327,7 +353,11 @@ if __name__ == "__main__":
 
 ![Figure 2: Directed Acyclic Graph built before insertion/deletion operations](images/aviation_safety_before.png)
 
+<small> Figure 2: Directed Acyclic Graph built before insertion/deletion operations</small>
+
 ![Figure 3: Directed Acyclic Graph built after insertion/deletion operations](images/aviation_safety_after.png)
+
+<small> Figure 3: Directed Acyclic Graph built after insertion/deletion operations</small>
 
 ### Advantages of the LLM Approach
 Traditional rule-based extraction methods rely on fixed rules (e.g., detecting words like “because,” “due to”) and struggle with complex sentence structures, especially when:
