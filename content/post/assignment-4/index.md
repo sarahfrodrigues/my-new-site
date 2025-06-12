@@ -54,7 +54,8 @@ Large Language Models (LLMs) serve as the core reasoning components in two key t
 
 ## Acronym Handling
 Aviation narratives are often filled with domain-specific acronyms (e.g., “ATC,” “VMC”) whose meanings vary depending on context. Our approach first identifies acronyms enclosed in parentheses using regular expressions and then applies heuristics to infer their likely full forms based on nearby capitalized words and initial-letter patterns.
-However, a single acronym may have multiple valid expansions. For instance, "VMC" can refer to Visual Meteorological Conditions or Velocity Made Good depending on the operational context. To resolve this ambiguity, a local Large Language Model (LLM) is leverage, such as Mistral, for disambiguation.
+However, a single acronym may have multiple valid expansions. For instance, "ACM" can refer to Acceptable Means of Compliance or Airspace Control Measures depending on the operational context. To resolve this ambiguity, a local Large Language Model (LLM) is leverage, such as Mistral, for disambiguation.
+
 
 ### Implementation
 
