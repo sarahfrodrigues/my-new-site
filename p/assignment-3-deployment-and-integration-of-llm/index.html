@@ -1,0 +1,393 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="This assignment focuses on deploying and using both online and local large language models (LLMs) to enhance development workflows. It involves configuring an API from an online LLM provider (like OpenAI), installing and running a local LLM using Ollama, and integrating both into an IDE such as VSCode or PyCharm. The goal is to demonstrate how these tools can assist in tasks like code generation and analysis."><title>Assignment 3 - Deployment and Integration of LLM</title><link rel=canonical href=https://sarahfrodrigues.github.io/my-new-site/p/assignment-3-deployment-and-integration-of-llm/><link rel=stylesheet href=/my-new-site/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css><meta property='og:title' content="Assignment 3 - Deployment and Integration of LLM"><meta property='og:description' content="This assignment focuses on deploying and using both online and local large language models (LLMs) to enhance development workflows. It involves configuring an API from an online LLM provider (like OpenAI), installing and running a local LLM using Ollama, and integrating both into an IDE such as VSCode or PyCharm. The goal is to demonstrate how these tools can assist in tasks like code generation and analysis."><meta property='og:url' content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-3-deployment-and-integration-of-llm/'><meta property='og:site_name' content='Basics of Software Technology Course Website'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='LLM'><meta property='article:tag' content='Ollama'><meta property='article:tag' content='Code Generation'><meta property='article:published_time' content='2025-06-09T00:00:00+00:00'><meta property='article:modified_time' content='2025-06-09T00:00:00+00:00'><meta property='og:image' content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3.jpg'><meta name=twitter:title content="Assignment 3 - Deployment and Integration of LLM"><meta name=twitter:description content="This assignment focuses on deploying and using both online and local large language models (LLMs) to enhance development workflows. It involves configuring an API from an online LLM provider (like OpenAI), installing and running a local LLM using Ollama, and integrating both into an IDE such as VSCode or PyCharm. The goal is to demonstrate how these tools can assist in tasks like code generation and analysis."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3.jpg'><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/my-new-site/><img src=/my-new-site/img/avatar_hu_297d86356ca13e78.png width=300 height=302 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>👽</span></figure><div class=site-meta><h1 class=site-name><a href=/my-new-site>Basics of Software Technology Course Website</a></h1><h2 class=site-description>“The scariest moment is always just before you start.” ― Stephen King</h2></div></header><ol class=menu-social><li><a href=https://github.com/sarahfrodrigues target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.linkedin.com/in/sarah-frizera-rodrigues/ target=_blank title=LinkedIn rel=me><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/my-new-site/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/my-new-site/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/my-new-site/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/my-new-site/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#project-overview>Project Overview</a></li><li><a href=#online-vs-local-models>Online vs Local Models</a><ol><li><a href=#online-models>Online Models</a></li><li><a href=#local-models>Local Models</a></li></ol></li><li><a href=#online-model-setup>Online Model Setup</a><ol><li><a href=#1-api-provider-selection>1. API Provider Selection</a></li><li><a href=#2-obtaining-api-key>2. Obtaining API Key</a></li><li><a href=#3-model-selection>3. Model Selection</a></li><li><a href=#4-python-environment-setup>4. Python Environment Setup</a></li></ol></li><li><a href=#local-model-development>Local Model Development</a><ol><li><a href=#1-ollama-installation>1. Ollama Installation</a></li><li><a href=#2-model-selection>2. Model Selection</a></li><li><a href=#3-python-environment>3. Python Environment</a></li></ol></li><li><a href=#model-comparison>Model Comparison</a><ol><li><a href=#benchmark-results>Benchmark Results</a></li><li><a href=#1-performance-evaluation>1. Performance Evaluation</a></li><li><a href=#2-feature-comparison>2. Feature Comparison</a></li></ol></li><li><a href=#conclusion>Conclusion</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/><img src=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3_hu_b9cdd7a8b3a6801.jpg srcset="/my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3_hu_b9cdd7a8b3a6801.jpg 800w, /my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3_hu_7d5f3a84ab1f7e02.jpg 1600w" width=800 height=533 loading=lazy alt="Featured image of post Assignment 3 - Deployment and Integration of LLM"></a></div><div class=article-details><header class=article-category><a href=/my-new-site/categories/assignment/>Assignment</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/>Assignment 3 - Deployment and Integration of LLM</a></h2><h3 class=article-subtitle>This assignment focuses on deploying and using both online and local large language models (LLMs) to enhance development workflows. It involves configuring an API from an online LLM provider (like OpenAI), installing and running a local LLM using Ollama, and integrating both into an IDE such as VSCode or PyCharm. The goal is to demonstrate how these tools can assist in tasks like code generation and analysis.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jun 09, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>9 minute read</time></div></footer></div></header><section class=article-content><h1 id=ai-model-api-comparison-project>AI Model API Comparison Project</h1><h2 id=project-overview>Project Overview</h2><p>This project compares the performance and features of <strong>online</strong> and <strong>local</strong> AI models for code generation tasks. It provides:</p><ul><li>A FastAPI interface for model queries</li><li>Performance benchmarking capabilities</li><li>Side-by-side feature comparison</li></ul><h2 id=online-vs-local-models>Online vs Local Models</h2><p>When selecting between online and local AI models, developers should consider trade-offs in accessibility, performance, privacy, and scalability:</p><h3 id=online-models>Online Models</h3><p>Online models, such as Hugging Face-hosted Qwen2.5-32B, are accessed via API over the internet. These models typically offer:</p><ul><li>Access to powerful infrastructure and large-scale models (e.g., 32B parameters)</li><li>Minimal local setup required</li><li>Automatic updates and optimizations handled by the provider</li><li>Dependence on a stable internet connection and API key</li><li>Potential latency due to network requests</li><li>Usage limits or costs depending on the provider&rsquo;s pricing plan</li></ul><h3 id=local-models>Local Models</h3><p>Local models like CodeLLaMA or Qwen2.5-3B run entirely on a user&rsquo;s machine. They offer:</p><ul><li>Full offline capability and independence from external services</li><li>Greater control over execution and data privacy</li><li>No usage quotas or API restrictions</li><li>Hardware requirements depending on model size</li><li>Slightly more effort for initial setup and configuration</li></ul><h2 id=online-model-setup>Online Model Setup</h2><h3 id=1-api-provider-selection>1. API Provider Selection</h3><p><strong>Hugging Face</strong> was selected as the API provider because:</p><ul><li>Offers state-of-the-art open models</li><li>Provides generous free tier for experimentation</li><li>Has excellent documentation and community support</li><li>Supports the Qwen series of coding-specialized models</li></ul><h3 id=2-obtaining-api-key>2. Obtaining API Key</h3><ol><li>Go to <a class=link href=https://huggingface.co target=_blank rel=noopener>Hugging Face website</a></li><li>Create an account or log in</li><li>Navigate to <a class=link href=https://huggingface.co/settings/tokens target=_blank rel=noopener>Access Tokens</a></li><li>Create a new token with <code>write</code> permission</li><li>Securely store your key in a <code>.env</code> file:<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-env data-lang=env><span class=line><span class=cl><span class=nv>HF_API_KEY</span><span class=o>=</span>your_api_key_here
+</span></span></code></pre></td></tr></table></div></div></li></ol><h3 id=3-model-selection>3. Model Selection</h3><p>Selected model: Qwen/Qwen2.5-Coder-32B-Instruct</p><p>Key features:</p><ul><li>32 billion parameter model</li><li>Specialized for coding tasks</li><li>Supports 32k token context window</li><li>Strong Python code generation capabilities</li></ul><h3 id=4-python-environment-setup>4. Python Environment Setup</h3><p>Required packages:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip install fastapi requests python-dotenv uvicorn
+</span></span></code></pre></td></tr></table></div></div><h2 id=local-model-development>Local Model Development</h2><h3 id=1-ollama-installation>1. Ollama Installation</h3><ol><li>Download Ollama from <a class=link href=https://ollama.ai target=_blank rel=noopener>ollama.ai</a></li><li>Install following platform-specific instructions<div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ollama run model-name
+</span></span></code></pre></td></tr></table></div></div></li></ol><h3 id=2-model-selection>2. Model Selection</h3><div class=table-wrapper><table><thead><tr><th>Model Name</th><th>Size</th><th>Strengths</th><th>Installation Command</th></tr></thead><tbody><tr><td><code>codellama:7b</code></td><td>7B</td><td>General-purpose code gen</td><td><code>ollama pull codellama:7b</code></td></tr><tr><td><code>qwen2.5-coder:3b</code></td><td>3B</td><td>Better complex code reasoning</td><td><code>ollama pull qwen2.5-coder</code></td></tr></tbody></table></div><h3 id=3-python-environment>3. Python Environment</h3><p>Additional required package:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>pip install ollama
+</span></span></code></pre></td></tr></table></div></div><h2 id=model-comparison>Model Comparison</h2><p>The model comparison was implemented in Python to evaluate the behavior of different models under the same conditions.<br>The following code snippet demonstrates the structure used for this comparison:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>  1
+</span><span class=lnt>  2
+</span><span class=lnt>  3
+</span><span class=lnt>  4
+</span><span class=lnt>  5
+</span><span class=lnt>  6
+</span><span class=lnt>  7
+</span><span class=lnt>  8
+</span><span class=lnt>  9
+</span><span class=lnt> 10
+</span><span class=lnt> 11
+</span><span class=lnt> 12
+</span><span class=lnt> 13
+</span><span class=lnt> 14
+</span><span class=lnt> 15
+</span><span class=lnt> 16
+</span><span class=lnt> 17
+</span><span class=lnt> 18
+</span><span class=lnt> 19
+</span><span class=lnt> 20
+</span><span class=lnt> 21
+</span><span class=lnt> 22
+</span><span class=lnt> 23
+</span><span class=lnt> 24
+</span><span class=lnt> 25
+</span><span class=lnt> 26
+</span><span class=lnt> 27
+</span><span class=lnt> 28
+</span><span class=lnt> 29
+</span><span class=lnt> 30
+</span><span class=lnt> 31
+</span><span class=lnt> 32
+</span><span class=lnt> 33
+</span><span class=lnt> 34
+</span><span class=lnt> 35
+</span><span class=lnt> 36
+</span><span class=lnt> 37
+</span><span class=lnt> 38
+</span><span class=lnt> 39
+</span><span class=lnt> 40
+</span><span class=lnt> 41
+</span><span class=lnt> 42
+</span><span class=lnt> 43
+</span><span class=lnt> 44
+</span><span class=lnt> 45
+</span><span class=lnt> 46
+</span><span class=lnt> 47
+</span><span class=lnt> 48
+</span><span class=lnt> 49
+</span><span class=lnt> 50
+</span><span class=lnt> 51
+</span><span class=lnt> 52
+</span><span class=lnt> 53
+</span><span class=lnt> 54
+</span><span class=lnt> 55
+</span><span class=lnt> 56
+</span><span class=lnt> 57
+</span><span class=lnt> 58
+</span><span class=lnt> 59
+</span><span class=lnt> 60
+</span><span class=lnt> 61
+</span><span class=lnt> 62
+</span><span class=lnt> 63
+</span><span class=lnt> 64
+</span><span class=lnt> 65
+</span><span class=lnt> 66
+</span><span class=lnt> 67
+</span><span class=lnt> 68
+</span><span class=lnt> 69
+</span><span class=lnt> 70
+</span><span class=lnt> 71
+</span><span class=lnt> 72
+</span><span class=lnt> 73
+</span><span class=lnt> 74
+</span><span class=lnt> 75
+</span><span class=lnt> 76
+</span><span class=lnt> 77
+</span><span class=lnt> 78
+</span><span class=lnt> 79
+</span><span class=lnt> 80
+</span><span class=lnt> 81
+</span><span class=lnt> 82
+</span><span class=lnt> 83
+</span><span class=lnt> 84
+</span><span class=lnt> 85
+</span><span class=lnt> 86
+</span><span class=lnt> 87
+</span><span class=lnt> 88
+</span><span class=lnt> 89
+</span><span class=lnt> 90
+</span><span class=lnt> 91
+</span><span class=lnt> 92
+</span><span class=lnt> 93
+</span><span class=lnt> 94
+</span><span class=lnt> 95
+</span><span class=lnt> 96
+</span><span class=lnt> 97
+</span><span class=lnt> 98
+</span><span class=lnt> 99
+</span><span class=lnt>100
+</span><span class=lnt>101
+</span><span class=lnt>102
+</span><span class=lnt>103
+</span><span class=lnt>104
+</span><span class=lnt>105
+</span><span class=lnt>106
+</span><span class=lnt>107
+</span><span class=lnt>108
+</span><span class=lnt>109
+</span><span class=lnt>110
+</span><span class=lnt>111
+</span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>from</span> <span class=nn>fastapi</span> <span class=kn>import</span> <span class=n>FastAPI</span><span class=p>,</span> <span class=n>Query</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>fastapi.responses</span> <span class=kn>import</span> <span class=n>JSONResponse</span><span class=p>,</span> <span class=n>PlainTextResponse</span><span class=p>,</span> <span class=n>HTMLResponse</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pydantic</span> <span class=kn>import</span> <span class=n>BaseModel</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>requests</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>dotenv</span> <span class=kn>import</span> <span class=n>load_dotenv</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Load .env file</span>
+</span></span><span class=line><span class=cl><span class=n>load_dotenv</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Constants</span>
+</span></span><span class=line><span class=cl><span class=n>HF_API_KEY</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>getenv</span><span class=p>(</span><span class=s2>&#34;HF_API_KEY&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>MODEL_NAME</span> <span class=o>=</span> <span class=s2>&#34;Qwen/Qwen2.5-Coder-32B-Instruct&#34;</span>
+</span></span><span class=line><span class=cl><span class=n>API_URL</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>&#34;https://api-inference.huggingface.co/models/</span><span class=si>{</span><span class=n>MODEL_NAME</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Initialize FastAPI app</span>
+</span></span><span class=line><span class=cl><span class=n>app</span> <span class=o>=</span> <span class=n>FastAPI</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>QueryRequest</span><span class=p>(</span><span class=n>BaseModel</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Request model for text generation endpoint.
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Attributes:
+</span></span></span><span class=line><span class=cl><span class=s2>        prompt: The input text prompt for the model.
+</span></span></span><span class=line><span class=cl><span class=s2>        max_tokens: Maximum number of tokens to generate (default: 512).
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>prompt</span><span class=p>:</span> <span class=nb>str</span>
+</span></span><span class=line><span class=cl>    <span class=n>max_tokens</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>512</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>query_model</span><span class=p>(</span><span class=n>prompt</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>max_tokens</span><span class=p>:</span> <span class=nb>int</span> <span class=o>=</span> <span class=mi>512</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Query the Hugging Face model API with the given prompt.
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Args:
+</span></span></span><span class=line><span class=cl><span class=s2>        prompt: Input text for the model.
+</span></span></span><span class=line><span class=cl><span class=s2>        max_tokens: Maximum number of tokens to generate.
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        Generated text from the model.
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Raises:
+</span></span></span><span class=line><span class=cl><span class=s2>        requests.exceptions.RequestException: If the API request fails.
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>headers</span> <span class=o>=</span> <span class=p>{</span><span class=s2>&#34;Authorization&#34;</span><span class=p>:</span> <span class=sa>f</span><span class=s2>&#34;Bearer </span><span class=si>{</span><span class=n>HF_API_KEY</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>payload</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;inputs&#34;</span><span class=p>:</span> <span class=n>prompt</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;parameters&#34;</span><span class=p>:</span> <span class=p>{</span><span class=s2>&#34;max_new_tokens&#34;</span><span class=p>:</span> <span class=n>max_tokens</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>response</span> <span class=o>=</span> <span class=n>requests</span><span class=o>.</span><span class=n>post</span><span class=p>(</span><span class=n>API_URL</span><span class=p>,</span> <span class=n>headers</span><span class=o>=</span><span class=n>headers</span><span class=p>,</span> <span class=n>json</span><span class=o>=</span><span class=n>payload</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>response</span><span class=o>.</span><span class=n>raise_for_status</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>response</span><span class=o>.</span><span class=n>json</span><span class=p>()[</span><span class=mi>0</span><span class=p>]</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s2>&#34;generated_text&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>format_response</span><span class=p>(</span><span class=n>prompt</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>response</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>str</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Format the response with clear prompt and response sections.
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Args:
+</span></span></span><span class=line><span class=cl><span class=s2>        prompt: The original user prompt
+</span></span></span><span class=line><span class=cl><span class=s2>        response: The generated response from the model
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        Formatted string with prompt and response sections
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Remove the original prompt if it&#39;s duplicated in the response</span>
+</span></span><span class=line><span class=cl>    <span class=n>cleaned_response</span> <span class=o>=</span> <span class=n>response</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>prompt</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=sa>f</span><span class=s2>&#34;prompt:</span><span class=se>\n</span><span class=si>{</span><span class=n>prompt</span><span class=si>}</span><span class=se>\n\n</span><span class=s2>response:</span><span class=se>\n</span><span class=si>{</span><span class=n>cleaned_response</span><span class=si>}</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nd>@app.post</span><span class=p>(</span><span class=s2>&#34;/generate&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=k>async</span> <span class=k>def</span> <span class=nf>generate_text</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=n>request</span><span class=p>:</span> <span class=n>QueryRequest</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nb>format</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=n>Query</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>description</span><span class=o>=</span><span class=s2>&#34;Output format&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=n>enum</span><span class=o>=</span><span class=p>[</span><span class=s2>&#34;text&#34;</span><span class=p>,</span> <span class=s2>&#34;json&#34;</span><span class=p>,</span> <span class=s2>&#34;html&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Generate text using the Hugging Face model.
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Args:
+</span></span></span><span class=line><span class=cl><span class=s2>        request: QueryRequest containing prompt and max_tokens.
+</span></span></span><span class=line><span class=cl><span class=s2>        format: Output format (text, json, or html).
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        Response containing generated text in the requested format.
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>try</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>raw_response</span> <span class=o>=</span> <span class=n>query_model</span><span class=p>(</span><span class=n>request</span><span class=o>.</span><span class=n>prompt</span><span class=p>,</span> <span class=n>request</span><span class=o>.</span><span class=n>max_tokens</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>formatted_response</span> <span class=o>=</span> <span class=n>format_response</span><span class=p>(</span><span class=n>request</span><span class=o>.</span><span class=n>prompt</span><span class=p>,</span> <span class=n>raw_response</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nb>format</span> <span class=o>==</span> <span class=s2>&#34;json&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>JSONResponse</span><span class=p>(</span><span class=n>content</span><span class=o>=</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;prompt&#34;</span><span class=p>:</span> <span class=n>request</span><span class=o>.</span><span class=n>prompt</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;response&#34;</span><span class=p>:</span> <span class=n>raw_response</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>request</span><span class=o>.</span><span class=n>prompt</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=k>elif</span> <span class=nb>format</span> <span class=o>==</span> <span class=s2>&#34;html&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>HTMLResponse</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=n>content</span><span class=o>=</span><span class=sa>f</span><span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>                &lt;html&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                    &lt;body&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                        &lt;h3&gt;Prompt:&lt;/h3&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                        &lt;pre&gt;</span><span class=si>{</span><span class=n>request</span><span class=o>.</span><span class=n>prompt</span><span class=si>}</span><span class=s2>&lt;/pre&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                        &lt;h3&gt;Response:&lt;/h3&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                        &lt;pre&gt;</span><span class=si>{</span><span class=n>raw_response</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>request</span><span class=o>.</span><span class=n>prompt</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span><span class=si>}</span><span class=s2>&lt;/pre&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                    &lt;/body&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                &lt;/html&gt;
+</span></span></span><span class=line><span class=cl><span class=s2>                &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=n>PlainTextResponse</span><span class=p>(</span><span class=n>content</span><span class=o>=</span><span class=n>formatted_response</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>    <span class=k>except</span> <span class=n>requests</span><span class=o>.</span><span class=n>exceptions</span><span class=o>.</span><span class=n>RequestException</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>PlainTextResponse</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=n>content</span><span class=o>=</span><span class=sa>f</span><span class=s2>&#34;Error: </span><span class=si>{</span><span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=n>status_code</span><span class=o>=</span><span class=mi>500</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Test the model with proper formatting</span>
+</span></span><span class=line><span class=cl>    <span class=n>sample_query</span> <span class=o>=</span> <span class=s2>&#34;Write a quick sort algorithm in Python.&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=n>response</span> <span class=o>=</span> <span class=n>query_model</span><span class=p>(</span><span class=n>sample_query</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>format_response</span><span class=p>(</span><span class=n>sample_query</span><span class=p>,</span> <span class=n>response</span><span class=p>))</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=benchmark-results>Benchmark Results</h3><p>=== Model Comparison ===</p><p><strong>Model: online_qwen</strong>
+Type: Online
+Time: 0.54s
+Response length: 1938 chars</p><p>Response excerpt:
+Write a quick sort algorithm in Python. Certainly! Quick sort is a popular and efficient sorting algorithm that uses a divide-and-conquer approach to sort elements. Here&rsquo;s a simple implementation of the quick sort algorithm in Python:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>quick_sort</span><span class=p>(</span><span class=n>arr</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Base case: if the array is empty or has one element, it&#39;s already sorted</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>arr</span><span class=p>)</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>arr</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># Choose a pivot element from the array</span>
+</span></span><span class=line><span class=cl>        <span class=n>pivot</span> <span class=o>=</span> <span class=n>arr</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>arr</span><span class=p>)</span> <span class=o>//</span> <span class=mi>2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># Partition the array into three parts:</span>
+</span></span><span class=line><span class=cl>        <span class=c1># - elements less than the pivot</span>
+</span></span><span class=line><span class=cl>        <span class=c1># - elements equal to the pivot</span>
+</span></span><span class=line><span class=cl>        <span class=c1># - elements greater than the pivot</span>
+</span></span><span class=line><span class=cl>        <span class=n>less</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span> <span class=k>if</span> <span class=n>x</span> <span class=o>&lt;</span> <span class=n>pivot</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>equal</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span> <span class=k>if</span> <span class=n>x</span> <span class=o>==</span> <span class=n>pivot</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>greater</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span> <span class=k>if</span> <span class=n>x</span> <span class=o>&gt;</span> <span class=n>pivot</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># Recursively apply quick_sort to the &#39;less&#39; and &#39;greater&#39; subarrays</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>quick_sort</span><span class=p>(</span><span class=n>less</span><span class=p>)</span> <span class=o>+</span> <span class=n>equal</span> <span class=o>+</span> <span class=n>quick_sort</span><span class=p>(</span><span class=n>greater</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Example usage:</span>
+</span></span><span class=line><span class=cl><span class=n>arr</span> <span class=o>=</span> <span class=p>[</span><span class=mi>3</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>sorted_arr</span> <span class=o>=</span> <span class=n>quick_sort</span><span class=p>(</span><span class=n>arr</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Sorted array:&#34;</span><span class=p>,</span> <span class=n>sorted_arr</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Explanation:</p><ol><li>Base Case: If the array has one or zero elements, it is already sorted, so we return it as is.</li><li>Pivot Selection: We choose the middle element of the array as the pivot. This is a simple strategy, but there are other strategies for choosing a pivot that can improve performance in certain cases.</li><li>Partitioning: We partition the array into three lists:<ul><li><code>less</code>: Elements less than the pivot.</li><li><code>equal</code>: Elements equal to the pivot.</li><li><code>greater</code>: Elements greater than the pivot.</li></ul></li><li>Recursive Sorting: We recursively sort the <code>less</code> and <code>greater</code> lists and concatenate them with the <code>equal</code> list to get the sorted array.</li></ol><p>This implementation is straightforward and works well for educational purposes. However, in practice, optimizations such as choosing a better pivot and using in-place partitioning can improve performance.</p><p><strong>Model: local_codellama</strong>
+Type: Local
+Time: 13.07s
+Response length: 756 chars</p><p>Response excerpt:</p><p>Here is an example of a quicksort algorithm in Python:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>def quicksort(arr):
+</span></span><span class=line><span class=cl>    if len(arr) &lt;= 1:
+</span></span><span class=line><span class=cl>        return arr
+</span></span><span class=line><span class=cl>    pivot = arr[0]
+</span></span><span class=line><span class=cl>    less = [x for x in arr[1:] if x &lt;= pivot]
+</span></span><span class=line><span class=cl>    greater = [x for x in arr[1:] if x &gt; pivot]
+</span></span><span class=line><span class=cl>    return quicksort(less) + [pivot] + quicksort(greater)
+</span></span></code></pre></td></tr></table></div></div><p>This algorithm works by selecting a pivot element from the array, and then partitioning the array into two subarrays: one containing elements less than the pivot, and one containing elements greater than the pivot. It then recursively sorts the subarrays and combines them to produce the sorted array.</p><p>Here is an example of how you can use this algorithm to sort a list of numbers:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>arr = [3, 2, 1, 5, 4]
+</span></span><span class=line><span class=cl>print(quicksort(arr))
+</span></span><span class=line><span class=cl># Output: [1, 2, 3, 4, 5]
+</span></span></code></pre></td></tr></table></div></div><p><strong>Model: local_qwen</strong>
+Type: Local
+Time: 9.78s
+Response length: 1340 chars</p><p>Response excerpt:
+Certainly! Here&rsquo;s a simple implementation of the QuickSort algorithm in Python:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>def</span> <span class=nf>quick_sort</span><span class=p>(</span><span class=n>arr</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>arr</span><span class=p>)</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>arr</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>pivot</span> <span class=o>=</span> <span class=n>arr</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>arr</span><span class=p>)</span> <span class=o>//</span> <span class=mi>2</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>left</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span> <span class=k>if</span> <span class=n>x</span> <span class=o>&lt;</span> <span class=n>pivot</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>middle</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span> <span class=k>if</span> <span class=n>x</span> <span class=o>==</span> <span class=n>pivot</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        <span class=n>right</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>arr</span> <span class=k>if</span> <span class=n>x</span> <span class=o>&gt;</span> <span class=n>pivot</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>quick_sort</span><span class=p>(</span><span class=n>left</span><span class=p>)</span> <span class=o>+</span> <span class=n>middle</span> <span class=o>+</span> <span class=n>quick_sort</span><span class=p>(</span><span class=n>right</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Example usage:</span>
+</span></span><span class=line><span class=cl><span class=n>example_array</span> <span class=o>=</span> <span class=p>[</span><span class=mi>3</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>sorted_array</span> <span class=o>=</span> <span class=n>quick_sort</span><span class=p>(</span><span class=n>example_array</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>sorted_array</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>Explanation:</p><ol><li>Base Case: If the array has 0 or 1 element, it is already sorted, so we return it as is.</li><li>Pivot Selection: We choose a pivot element from the array. In this implementation, we use the middle element of the array as the pivot.</li><li>Partitioning:<ul><li><code>left</code>: A list containing all elements less than the pivot.</li><li><code>middle</code>: A list containing all elements equal to the pivot.</li><li><code>right</code>: A list containing all elements greater than the pivot.</li></ul></li><li>Recursive Sorting: We recursively apply the quicksort algorithm to the <code>left</code> and <code>right</code> lists and concatenate the results with the <code>middle</code> list.</li></ol><p>This implementation of QuickSort is in-place, meaning it doesn&rsquo;t require extra space for another array. However, the space complexity is O(log n) due to the recursion stack.</p><h3 id=1-performance-evaluation>1. Performance Evaluation</h3><ul><li><strong>Response Time</strong>: Measures the speed of each model in generating output.</li><li><strong>Response Length</strong>: Captures the character count of the output.</li><li><strong>Quality Assessment</strong>: Subjective evaluation based on accuracy, coherence, and code correctness.</li></ul><h3 id=2-feature-comparison>2. Feature Comparison</h3><div class=table-wrapper><table><thead><tr><th>Feature</th><th>Online Qwen2.5-32B</th><th>Local CodeLLaMA</th><th>Local Qwen2.5</th></tr></thead><tbody><tr><td>Model Parameters</td><td>32B</td><td>7B</td><td>3B</td></tr><tr><td>Model Size</td><td>Cloud-hosted</td><td>3.8 GB</td><td>1.9 GB</td></tr><tr><td>Requires Internet</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>API Key Needed</td><td>Yes</td><td>No</td><td>No</td></tr><tr><td>Context Window</td><td>32K tokens</td><td>16K tokens</td><td>32K tokens</td></tr><tr><td>Streaming Support</td><td>No</td><td>Yes</td><td>Yes</td></tr><tr><td>Setup Complexity</td><td>Medium</td><td>Low</td><td>Low</td></tr><tr><td>Recommended Use Case</td><td>Production</td><td>Development</td><td>Development</td></tr></tbody></table></div><h2 id=conclusion>Conclusion</h2><p>This project demonstrated how developers can effectively integrate both online and local large language models (LLMs) into their development environments. By leveraging cloud-based APIs like Hugging Face and local model runtimes such as Ollama, we explored a flexible approach to AI-assisted coding workflows.</p><p>The comparison revealed key trade-offs: online models provide access to larger, production-ready models with minimal setup, while local models offer privacy, offline capability, and greater control. Both approaches have their strengths depending on the use case—whether it&rsquo;s rapid prototyping, secure offline development, or cost-effective experimentation.</p><p>Ultimately, this setup empowers developers to:</p><ul><li>Evaluate different AI model configurations in a consistent testing framework</li><li>Balance performance, resource usage, and deployment complexity</li><li>Seamlessly switch between remote and local inference based on project requirements</li></ul><p>As LLMs continue to evolve, understanding how to deploy and integrate them efficiently will be an essential skill for modern software development.</p></section><footer class=article-footer><section class=article-tags><a href=/my-new-site/tags/llm/>LLM</a>
+<a href=/my-new-site/tags/ollama/>Ollama</a>
+<a href=/my-new-site/tags/code-generation/>Code Generation</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/><div class=article-image><img src=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4.d008a7980bf3e75c8e841e9311a945cd_hu_6cef1efd653baa3.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 4 - Developing an Application with the Aid of LLM" data-hash="md5-0AinmAvz51yOhB6TEalFzQ=="></div><div class=article-details><h2 class=article-title>Assignment 4 - Developing an Application with the Aid of LLM</h2></div></a></article><article class=has-image><a href=/my-new-site/p/assignment-1/><div class=article-image><img src=/my-new-site/p/assignment-1/cover1.f475d7b6d5e7a443b1558fd4d0d7a1fb_hu_9cce6f050da2c628.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 1 - Command Line & Documentation" data-key=assignment-1 data-hash="md5-9HXXttXnpEOxVY/U0Neh+w=="></div><div class=article-details><h2 class=article-title>Assignment 1 - Command Line & Documentation</h2></div></a></article><article class=has-image><a href=/my-new-site/p/assignment-2/><div class=article-image><img src=/my-new-site/p/assignment-2/cover2.840df3ef0636660a9a5d059cbfbf25b1_hu_47d6bbe73722278.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 2 - Static Personal Blog Website" data-key=assignment-2 data-hash="md5-hA3z7wY2ZgqaXQWcv78lsQ=="></div><div class=article-details><h2 class=article-title>Assignment 2 - Static Personal Blog Website</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//software-basics-safbee.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2025 Basics of Software Technology Course Website</section><section class=powerby>Made with 💻, ☕, and a sprinkle of late-night inspiration ✨<br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/my-new-site/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

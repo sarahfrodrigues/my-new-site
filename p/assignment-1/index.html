@@ -1,0 +1,422 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="This assignment focuses on implementing matrix multiplication in both C (a compiled language) and Python (an interpreted language) to compare their performance and development experiences. Alongside the code, it emphasizes the importance of clear, reproducible documentation using Markdown. Through this project, students will deepen their understanding of Unix/Linux command-line tools, gain hands-on experience in technical writing, and explore the practical differences between programming paradigms—all while having a little fun along the way."><title>Assignment 1 - Command Line & Documentation</title><link rel=canonical href=https://sarahfrodrigues.github.io/my-new-site/p/assignment-1/><link rel=stylesheet href=/my-new-site/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css><meta property='og:title' content="Assignment 1 - Command Line & Documentation"><meta property='og:description' content="This assignment focuses on implementing matrix multiplication in both C (a compiled language) and Python (an interpreted language) to compare their performance and development experiences. Alongside the code, it emphasizes the importance of clear, reproducible documentation using Markdown. Through this project, students will deepen their understanding of Unix/Linux command-line tools, gain hands-on experience in technical writing, and explore the practical differences between programming paradigms—all while having a little fun along the way."><meta property='og:url' content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-1/'><meta property='og:site_name' content='Basics of Software Technology Course Website'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='Documentation'><meta property='article:tag' content='Markdown'><meta property='article:tag' content='Python'><meta property='article:published_time' content='2025-04-23T00:00:00+00:00'><meta property='article:modified_time' content='2025-04-23T00:00:00+00:00'><meta property='og:image' content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-1/cover1.jpg'><meta name=twitter:title content="Assignment 1 - Command Line & Documentation"><meta name=twitter:description content="This assignment focuses on implementing matrix multiplication in both C (a compiled language) and Python (an interpreted language) to compare their performance and development experiences. Alongside the code, it emphasizes the importance of clear, reproducible documentation using Markdown. Through this project, students will deepen their understanding of Unix/Linux command-line tools, gain hands-on experience in technical writing, and explore the practical differences between programming paradigms—all while having a little fun along the way."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-1/cover1.jpg'><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/my-new-site/><img src=/my-new-site/img/avatar_hu_297d86356ca13e78.png width=300 height=302 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>👽</span></figure><div class=site-meta><h1 class=site-name><a href=/my-new-site>Basics of Software Technology Course Website</a></h1><h2 class=site-description>“The scariest moment is always just before you start.” ― Stephen King</h2></div></header><ol class=menu-social><li><a href=https://github.com/sarahfrodrigues target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.linkedin.com/in/sarah-frizera-rodrigues/ target=_blank title=LinkedIn rel=me><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/my-new-site/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/my-new-site/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/my-new-site/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/my-new-site/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#table-of-contents>Table of Contents</a></li><li><a href=#introduction>Introduction</a><ol><li><a href=#markdown-documentation>Markdown Documentation</a></li><li><a href=#compiled-vs-interpreted-language>Compiled vs Interpreted Language</a><ol><li><a href=#compiled-languages>Compiled Languages</a></li><li><a href=#interpreted-languages>Interpreted Languages</a></li><li><a href=#comparison>Comparison</a></li></ol></li></ol></li><li><a href=#system-configuration>System Configuration</a></li><li><a href=#implementation-details>Implementation Details</a><ol><li><a href=#c-language-implementation>C Language Implementation</a></li><li><a href=#python-language-implementation>Python Language Implementation</a></li></ol></li><li><a href=#algorithm-verification>Algorithm Verification</a></li><li><a href=#performance-analysisbonus>Performance Analysis【bonus】</a><ol><li><a href=#implementation>Implementation</a></li><li><a href=#execution-times>Execution Times</a></li><li><a href=#analysis>Analysis</a></li></ol></li><li><a href=#conclusion>Conclusion</a></li><li><a href=#references>References</a></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/my-new-site/p/assignment-1/><img src=/my-new-site/p/assignment-1/cover1_hu_d569905426bc984a.jpg srcset="/my-new-site/p/assignment-1/cover1_hu_d569905426bc984a.jpg 800w, /my-new-site/p/assignment-1/cover1_hu_b84f16d8796cb456.jpg 1600w" width=800 height=532 loading=lazy alt="Featured image of post Assignment 1 - Command Line & Documentation"></a></div><div class=article-details><header class=article-category><a href=/my-new-site/categories/assignment/>Assignment</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/my-new-site/p/assignment-1/>Assignment 1 - Command Line & Documentation</a></h2><h3 class=article-subtitle>This assignment focuses on implementing matrix multiplication in both C (a compiled language) and Python (an interpreted language) to compare their performance and development experiences. Alongside the code, it emphasizes the importance of clear, reproducible documentation using Markdown. Through this project, students will deepen their understanding of Unix/Linux command-line tools, gain hands-on experience in technical writing, and explore the practical differences between programming paradigms—all while having a little fun along the way.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Apr 23, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>9 minute read</time></div></footer></div></header><section class=article-content><h2 id=table-of-contents>Table of Contents</h2><ol><li><a class=link href=#introduction>Introduction</a><ul><li>1.1. <a class=link href=#markdown-documentation>Markdown Documentation</a></li><li>1.2. <a class=link href=#compiled-vs-interpreted-language>Compiled vs Interpreted Language</a></li></ul></li><li><a class=link href=#system-configuration>System Configuration</a></li><li><a class=link href=#implementation-details>Implementation Details</a><ul><li>3.1. <a class=link href=#c-language-implementation>C Language Implementation</a></li><li>3.2. <a class=link href=#python-language-implementation>Python Language Implementation</a></li></ul></li><li><a class=link href=#algorithm-verification>Algorithm Verification</a></li><li><a class=link href=#performance-analysis>Performance Analysis</a></li><li><a class=link href=#conclusion>Conclusion</a></li><li><a class=link href=#references>References</a></li><li><a class=link href=#appendix>Appendix</a></li></ol><hr><h2 id=introduction>Introduction</h2><p>This project implements <strong>matrix multiplication</strong> in both a compiled language (C) and an interpreted language (Python) to explore their differences in performance and development workflows, while use markdown documentation to ensures code is understandable, maintainable, and reproducible.</p><blockquote><p>&ldquo;Documentation is a love letter that you write to your future self.&rdquo; – Damian Conway</p></blockquote><p>This project aims to:</p><ul><li>Familiarize with Unix/Linux command-line operations.</li><li>Develop proficiency in Markdown for technical documentation.</li><li>Implement matrix multiplication using both a compiled language (C) and an interpreted language (Python).</li><li>Validate the correctness of the algorithm and analyze performance differences.</li><li><del>Get me a good grade in the software course</del></li></ul><h3 id=markdown-documentation>Markdown Documentation</h3><p>Markdown is a <strong>lightweight markup language</strong> that simplifies formatting for text documents. It was created by John Gruber in 2004 and is widely used for technical documentation, blogging, and readme files.</p><p>It allows users to write in plain text while incorporating headings, lists, links, and code blocks with minimal syntax.</p><p>Example of a code block in Markdown:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-markdown data-lang=markdown><span class=line><span class=cl><span class=gh># This is a header
+</span></span></span><span class=line><span class=cl><span class=gh></span><span class=k>-</span> List item
+</span></span><span class=line><span class=cl>**Bold text**
+</span></span></code></pre></td></tr></table></div></div><p>To learn more about Markdown, visit <a class=link href=https://www.markdownguide.org/getting-started/ target=_blank rel=noopener>Markdown Guide</a>.</p><h3 id=compiled-vs-interpreted-language>Compiled vs Interpreted Language</h3><p>Every program consists of a set of instructions that need to be converted into machine code for execution. This conversion is handled by compilers and interpreters.</p><p>Compilation languages like Java are generally faster in genetic algorithms, but other languages, including interpreted ones, can hold their ground against them.
+Louden, K., & Mak, R. (2014). Compilers and Interpreters. , 68: 1-37. <a class=link href=https://doi.org/10.1201/B16812-77 target=_blank rel=noopener>https://doi.org/10.1201/B16812-77</a>.</p><h4 id=compiled-languages>Compiled Languages</h4><p>A compiled language translates the entire source code into machine code before execution. This results in faster performance since the program runs directly on the processor without needing real-time translation.</p><h4 id=interpreted-languages>Interpreted Languages</h4><p>An interpreted language translates and executes code line by line during runtime, providing more flexibility but often at the cost of speed.</p><h4 id=comparison>Comparison</h4><div class=table-wrapper><table><thead><tr><th>Feature</th><th>Compiled Language</th><th>Interpreted Language</th></tr></thead><tbody><tr><td><strong>Execution Process</strong></td><td>Source code → Machine code → Execution</td><td>Source code → Execution (direct interpretation)</td></tr><tr><td><strong>Speed</strong></td><td>Faster</td><td>Slower</td></tr><tr><td><strong>Performance</strong></td><td>High</td><td>Lower</td></tr><tr><td><strong>Compilation Required?</strong></td><td>Yes, before execution</td><td>No, executed line by line</td></tr><tr><td><strong>Examples</strong></td><td>C, C++, Java</td><td>Python, JavaScript, Perl</td></tr></tbody></table></div><p><img src=https://cdn.prod.website-files.com/61bb26fe53aeb2a18bbd17e4/6745db4ec0d135269573706e_6745d8d7cfc613d0012c6deb_11.webp loading=lazy alt="Compiled language vs interpreted language"></p><p>Figure 1: Compiled language vs interpreted language<a class=link href=https://cdn.prod.website-files.com/61bb26fe53aeb2a18bbd17e4/6745db4ec0d135269573706e_6745d8d7cfc613d0012c6deb_11.webp target=_blank rel=noopener>1</a></p><h2 id=system-configuration>System Configuration</h2><p>Accurate performance evaluation requires detailed documentation of the experimental environment. The table below specifies the hardware and software configuration used for this study, collected entirely through Linux command-line operations.</p><div class=table-wrapper><table><thead><tr><th>Component</th><th>Details</th></tr></thead><tbody><tr><td><strong>CPU Model</strong></td><td>13th Gen Intel(R) Core(TM) i7-13650HX</td></tr><tr><td><strong>Architecture</strong></td><td>x86_64</td></tr><tr><td><strong>Memory Size</strong></td><td>7.6Gi total, 594Mi used, 7.0Gi free, 3.1Mi shared, 244Mi buff/cache, 7.0Gi available</td></tr><tr><td><strong>Swap</strong></td><td>2.0Gi total, 0B used, 2.0Gi free</td></tr><tr><td><strong>Operating System Version</strong></td><td>Linux ac4raj7 5.15.167.4-microsoft-standard-WSL2 #1 SMP Tue Nov 5 00:21:55 UTC 2024 x86_64 GNU/Linux</td></tr><tr><td><strong>Compiler Version</strong></td><td>gcc (Debian 12.2.0-14) 12.2.0 Copyright (C) 2022 Free Software Foundation, Inc.</td></tr><tr><td><strong>Python Version</strong></td><td>Python 3.9.12</td></tr></tbody></table></div><h2 id=implementation-details>Implementation Details</h2><h3 id=c-language-implementation>C Language Implementation</h3><ul><li><strong>Source Code</strong>:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt; // Standard library</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;time.h&gt; // Time library</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>double</span><span class=o>**</span> <span class=nf>create_matrix</span><span class=p>(</span><span class=kt>int</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// Function to create a matrix
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>double</span><span class=o>**</span> <span class=n>matrix</span> <span class=o>=</span> <span class=p>(</span><span class=kt>double</span><span class=o>**</span><span class=p>)</span><span class=nf>malloc</span><span class=p>(</span><span class=n>size</span> <span class=o>*</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>double</span><span class=o>*</span><span class=p>));</span> <span class=c1>// Allocate memory for rows
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// Loop over rows of the matrix
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=kt>double</span><span class=o>*</span><span class=p>)</span><span class=nf>aligned_alloc</span><span class=p>(</span><span class=mi>64</span><span class=p>,</span> <span class=n>size</span> <span class=o>*</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>double</span><span class=p>));</span> <span class=c1>// Allocate memory for columns with alignment
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>matrix</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>matrix_multiply</span><span class=p>(</span><span class=kt>double</span><span class=o>**</span> <span class=n>A</span><span class=p>,</span> <span class=kt>double</span><span class=o>**</span> <span class=n>B</span><span class=p>,</span> <span class=kt>double</span><span class=o>**</span> <span class=n>C</span><span class=p>,</span> <span class=kt>int</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// Function to multiply two matrices
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=cp>#pragma omp parallel for collapse(2) </span><span class=c1>// Parallelize the nested loops
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>i</span><span class=o>&lt;</span><span class=n>size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// Loop over rows of matrix A
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>j</span><span class=o>&lt;</span><span class=n>size</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// Loop over columns of matrix B
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=kt>double</span> <span class=n>sum</span> <span class=o>=</span> <span class=mf>0.0</span><span class=p>;</span> <span class=c1>// Initialize sum to 0
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=cp>#pragma omp simd reduction(+:sum) </span><span class=c1>// SIMDize the loop and use reduction for sum
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>k</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> <span class=n>k</span><span class=o>&lt;</span><span class=n>size</span><span class=p>;</span> <span class=n>k</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span> <span class=c1>// Loop over columns of matrix A and rows of matrix B
+</span></span></span><span class=line><span class=cl><span class=c1></span>                <span class=n>sum</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>k</span><span class=p>]</span> <span class=o>*</span> <span class=n>B</span><span class=p>[</span><span class=n>k</span><span class=p>][</span><span class=n>j</span><span class=p>];</span> <span class=c1>// Multiply corresponding elements and add to sum
+</span></span></span><span class=line><span class=cl><span class=c1></span>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=n>C</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=n>sum</span><span class=p>;</span> <span class=c1>// Assign sum to the corresponding element of matrix C
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><strong>Compilation Command</strong>:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gcc matrix_multiply.c -o matrix_multiply  <span class=c1># Compile</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><strong>Execution Command</strong>:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>./matrix_multiply                         <span class=c1># Run</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=python-language-implementation>Python Language Implementation</h3><ul><li><strong>Source Code</strong>:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Python implementation of matrix multiplication</span>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>multiply_matrices</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>result</span> <span class=o>=</span> <span class=p>[[</span><span class=nb>sum</span><span class=p>(</span><span class=n>a</span> <span class=o>*</span> <span class=n>b</span> <span class=k>for</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=n>A_row</span><span class=p>,</span> <span class=n>B_col</span><span class=p>))</span> <span class=k>for</span> <span class=n>B_col</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=o>*</span><span class=n>B</span><span class=p>)]</span> <span class=k>for</span> <span class=n>A_row</span> <span class=ow>in</span> <span class=n>A</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>result</span>
+</span></span></code></pre></td></tr></table></div></div><ul><li><strong>Execution Command</strong>:</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>python3 matrix_multiplication.py
+</span></span></code></pre></td></tr></table></div></div><h2 id=algorithm-verification>Algorithm Verification</h2><ul><li><strong>Validation methodology</strong>:</li></ul><ol><li>Unit Testing (PyTest/Catch2)</li><li>Cross-Language Consistency Checks</li><li>Edge Case Analysis</li></ol><div class=table-wrapper><table><thead><tr><th>Test Case</th><th>C Result</th><th>Python Result</th><th>Validation</th></tr></thead><tbody><tr><td>Identity Matrix</td><td>Pass</td><td>Pass</td><td>✅</td></tr><tr><td>Zero Matrix</td><td>Pass</td><td>Pass</td><td>✅</td></tr><tr><td>Non-square (3×4 × 4×2)</td><td>Pass</td><td>Pass</td><td>✅</td></tr><tr><td>Floating Point Precision</td><td>1e-9 tol</td><td>1e-9 tol</td><td>✅</td></tr></tbody></table></div><h2 id=performance-analysisbonus>Performance Analysis【bonus】</h2><p>To asses the performance of the both languages the following codes were perfomed evaluating the average execution time for different matrix sizes</p><h3 id=implementation>Implementation</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt; // Standard input/output library</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt; // Standard library</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;time.h&gt; // Time library</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>matrix_multiply</span><span class=p>(</span><span class=kt>int</span> <span class=o>**</span><span class=n>A</span><span class=p>,</span> <span class=kt>int</span> <span class=o>**</span><span class=n>B</span><span class=p>,</span> <span class=kt>int</span> <span class=o>**</span><span class=n>result</span><span class=p>,</span> <span class=kt>int</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>result</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>k</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>k</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>result</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>k</span><span class=p>]</span> <span class=o>*</span> <span class=n>B</span><span class=p>[</span><span class=n>k</span><span class=p>][</span><span class=n>j</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Function to allocate memory for a matrix
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>int</span><span class=o>**</span> <span class=nf>allocate_matrix</span><span class=p>(</span><span class=kt>int</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=o>**</span><span class=n>matrix</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int</span> <span class=o>**</span><span class=p>)</span><span class=nf>malloc</span><span class=p>(</span><span class=n>size</span> <span class=o>*</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=p>)</span><span class=nf>malloc</span><span class=p>(</span><span class=n>size</span> <span class=o>*</span> <span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>matrix</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Function to free allocated matrix memory
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=nf>free_matrix</span><span class=p>(</span><span class=kt>int</span> <span class=o>**</span><span class=n>matrix</span><span class=p>,</span> <span class=kt>int</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=nf>free</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>free</span><span class=p>(</span><span class=n>matrix</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>// Function to initialize matrix with random values
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=nf>initialize_matrix</span><span class=p>(</span><span class=kt>int</span> <span class=o>**</span><span class=n>matrix</span><span class=p>,</span> <span class=kt>int</span> <span class=n>size</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>size</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>=</span> <span class=nf>rand</span><span class=p>()</span> <span class=o>%</span> <span class=mi>10</span><span class=p>;</span>  <span class=c1>// Values between 0-9
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>srand</span><span class=p>(</span><span class=nf>time</span><span class=p>(</span><span class=nb>NULL</span><span class=p>));</span>  <span class=c1>// Seed for random numbers
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>sizes</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span><span class=mi>5</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>500</span><span class=p>,</span> <span class=mi>1000</span><span class=p>};</span>  <span class=c1>// Different matrix sizes to test
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>num_sizes</span> <span class=o>=</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>sizes</span><span class=p>)</span> <span class=o>/</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>sizes</span><span class=p>[</span><span class=mi>0</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>num_runs</span> <span class=o>=</span> <span class=mi>10</span><span class=p>;</span>  <span class=c1>// Number of runs for averaging
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>s</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>s</span> <span class=o>&lt;</span> <span class=n>num_sizes</span><span class=p>;</span> <span class=n>s</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kt>int</span> <span class=n>size</span> <span class=o>=</span> <span class=n>sizes</span><span class=p>[</span><span class=n>s</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>Testing matrix size: %dx%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>size</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>// Allocate memory for matrices
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=kt>int</span> <span class=o>**</span><span class=n>A</span> <span class=o>=</span> <span class=nf>allocate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=kt>int</span> <span class=o>**</span><span class=n>B</span> <span class=o>=</span> <span class=nf>allocate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=kt>int</span> <span class=o>**</span><span class=n>result</span> <span class=o>=</span> <span class=nf>allocate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>// Initialize matrices with random values
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nf>initialize_matrix</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>initialize_matrix</span><span class=p>(</span><span class=n>B</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=kt>double</span> <span class=n>total_time</span> <span class=o>=</span> <span class=mf>0.0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1>// Run multiple times to get an average execution time
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>run</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>run</span> <span class=o>&lt;</span> <span class=n>num_runs</span><span class=p>;</span> <span class=n>run</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=kt>clock_t</span> <span class=n>start</span> <span class=o>=</span> <span class=nf>clock</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>            <span class=nf>matrix_multiply</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>,</span> <span class=n>result</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>            <span class=kt>clock_t</span> <span class=n>end</span> <span class=o>=</span> <span class=nf>clock</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>            <span class=n>total_time</span> <span class=o>+=</span> <span class=p>(</span><span class=kt>double</span><span class=p>)(</span><span class=n>end</span> <span class=o>-</span> <span class=n>start</span><span class=p>)</span> <span class=o>/</span> <span class=n>CLOCKS_PER_SEC</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Average execution time over %d runs: %f seconds</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span> <span class=n>num_runs</span><span class=p>,</span> <span class=n>total_time</span> <span class=o>/</span> <span class=n>num_runs</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>// Free allocated memory
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=nf>free_matrix</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>free_matrix</span><span class=p>(</span><span class=n>B</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=nf>free_matrix</span><span class=p>(</span><span class=n>result</span><span class=p>,</span> <span class=n>size</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Python</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span> <span class=c1># Fixed time import</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>random</span> <span class=c1># Fixed random import</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>matplotlib.pyplot</span> <span class=k>as</span> <span class=nn>plt</span>  <span class=c1># Fixed matplotlib import</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>multiply_matrices</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Multiply two matrices A and B using nested list comprehensions.
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Args:
+</span></span></span><span class=line><span class=cl><span class=s2>        A (list of lists): First matrix
+</span></span></span><span class=line><span class=cl><span class=s2>        B (list of lists): Second matrix
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        list of lists: Resultant matrix after multiplication
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Transpose B once to access columns efficiently</span>
+</span></span><span class=line><span class=cl>    <span class=n>B_transposed</span> <span class=o>=</span> <span class=nb>list</span><span class=p>(</span><span class=nb>zip</span><span class=p>(</span><span class=o>*</span><span class=n>B</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Perform matrix multiplication using pre-transposed B</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=nb>sum</span><span class=p>(</span><span class=n>a</span> <span class=o>*</span> <span class=n>b</span> <span class=k>for</span> <span class=n>a</span><span class=p>,</span> <span class=n>b</span> <span class=ow>in</span> <span class=nb>zip</span><span class=p>(</span><span class=n>A_row</span><span class=p>,</span> <span class=n>B_col</span><span class=p>))</span> 
+</span></span><span class=line><span class=cl>            <span class=k>for</span> <span class=n>B_col</span> <span class=ow>in</span> <span class=n>B_transposed</span>
+</span></span><span class=line><span class=cl>        <span class=p>]</span> 
+</span></span><span class=line><span class=cl>        <span class=k>for</span> <span class=n>A_row</span> <span class=ow>in</span> <span class=n>A</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>generate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;&#34;&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>    Generate a square matrix of given size with random integers between 0 and 10.
+</span></span></span><span class=line><span class=cl><span class=s2>    
+</span></span></span><span class=line><span class=cl><span class=s2>    Args:
+</span></span></span><span class=line><span class=cl><span class=s2>        size (int): Size of the square matrix
+</span></span></span><span class=line><span class=cl><span class=s2>        
+</span></span></span><span class=line><span class=cl><span class=s2>    Returns:
+</span></span></span><span class=line><span class=cl><span class=s2>        list of lists: Generated matrix
+</span></span></span><span class=line><span class=cl><span class=s2>    &#34;&#34;&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>[[</span><span class=n>random</span><span class=o>.</span><span class=n>randint</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span> <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>size</span><span class=p>)]</span> <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>size</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Matrix sizes to test (consider reducing max size for faster execution)</span>
+</span></span><span class=line><span class=cl><span class=n>sizes</span> <span class=o>=</span> <span class=p>[</span><span class=mi>5</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>50</span><span class=p>,</span> <span class=mi>100</span><span class=p>,</span> <span class=mi>500</span><span class=p>,</span> <span class=mi>1000</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=n>num_runs</span> <span class=o>=</span> <span class=mi>10</span>  <span class=c1># Number of runs per size (reduce for larger matrices)</span>
+</span></span><span class=line><span class=cl><span class=n>results</span> <span class=o>=</span> <span class=p>{}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Performance testing loop</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>size</span> <span class=ow>in</span> <span class=n>sizes</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=n>total_time</span> <span class=o>=</span> <span class=mf>0.0</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Testing matrix size: </span><span class=si>{</span><span class=n>size</span><span class=si>}</span><span class=s2>x</span><span class=si>{</span><span class=n>size</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># Warm-up loop to account for cold-start effects</span>
+</span></span><span class=line><span class=cl>    <span class=n>A</span> <span class=o>=</span> <span class=n>generate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>B</span> <span class=o>=</span> <span class=n>generate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>multiply_matrices</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>_</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>num_runs</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=c1># Generate fresh matrices for each run</span>
+</span></span><span class=line><span class=cl>        <span class=n>A</span> <span class=o>=</span> <span class=n>generate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>B</span> <span class=o>=</span> <span class=n>generate_matrix</span><span class=p>(</span><span class=n>size</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=c1># Time only the multiplication</span>
+</span></span><span class=line><span class=cl>        <span class=n>start_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>perf_counter</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=n>multiply_matrices</span><span class=p>(</span><span class=n>A</span><span class=p>,</span> <span class=n>B</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>end_time</span> <span class=o>=</span> <span class=n>time</span><span class=o>.</span><span class=n>perf_counter</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=n>total_time</span> <span class=o>+=</span> <span class=p>(</span><span class=n>end_time</span> <span class=o>-</span> <span class=n>start_time</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=n>avg_time</span> <span class=o>=</span> <span class=n>total_time</span> <span class=o>/</span> <span class=n>num_runs</span>
+</span></span><span class=line><span class=cl>    <span class=n>results</span><span class=p>[</span><span class=n>size</span><span class=p>]</span> <span class=o>=</span> <span class=n>avg_time</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;Average execution time: </span><span class=si>{</span><span class=n>avg_time</span><span class=si>:</span><span class=s2>.6f</span><span class=si>}</span><span class=s2> seconds&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Save results to file</span>
+</span></span><span class=line><span class=cl><span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=s2>&#34;python_performance_data.txt&#34;</span><span class=p>,</span> <span class=s2>&#34;w&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>file</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>size</span><span class=p>,</span> <span class=n>avg_time</span> <span class=ow>in</span> <span class=n>results</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>        <span class=n>file</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>size</span><span class=si>}</span><span class=s2> </span><span class=si>{</span><span class=n>avg_time</span><span class=si>}</span><span class=se>\n</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># Plotting results</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>figure</span><span class=p>(</span><span class=n>figsize</span><span class=o>=</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=mi>6</span><span class=p>))</span>
+</span></span><span class=line><span class=cl><span class=c1># Convert sizes to sorted list for proper plotting</span>
+</span></span><span class=line><span class=cl><span class=n>x</span> <span class=o>=</span> <span class=nb>sorted</span><span class=p>(</span><span class=n>results</span><span class=o>.</span><span class=n>keys</span><span class=p>())</span>
+</span></span><span class=line><span class=cl><span class=n>y</span> <span class=o>=</span> <span class=p>[</span><span class=n>results</span><span class=p>[</span><span class=n>size</span><span class=p>]</span> <span class=k>for</span> <span class=n>size</span> <span class=ow>in</span> <span class=n>x</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>plot</span><span class=p>(</span><span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>,</span> <span class=n>marker</span><span class=o>=</span><span class=s1>&#39;o&#39;</span><span class=p>,</span> <span class=n>linestyle</span><span class=o>=</span><span class=s1>&#39;-&#39;</span><span class=p>,</span> <span class=n>color</span><span class=o>=</span><span class=s1>&#39;r&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>         <span class=n>label</span><span class=o>=</span><span class=s2>&#34;Python Matrix Multiplication Time&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>xscale</span><span class=p>(</span><span class=s1>&#39;log&#39;</span><span class=p>)</span>  <span class=c1># Logarithmic scale for better visualization</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>yscale</span><span class=p>(</span><span class=s1>&#39;log&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>xlabel</span><span class=p>(</span><span class=s2>&#34;Matrix Size (NxN)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>ylabel</span><span class=p>(</span><span class=s2>&#34;Execution Time (seconds)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>title</span><span class=p>(</span><span class=s2>&#34;Performance of Python Matrix Multiplication (Optimized)&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>legend</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>grid</span><span class=p>(</span><span class=kc>True</span><span class=p>,</span> <span class=n>which</span><span class=o>=</span><span class=s2>&#34;both&#34;</span><span class=p>,</span> <span class=n>ls</span><span class=o>=</span><span class=s2>&#34;--&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>savefig</span><span class=p>(</span><span class=s2>&#34;performance_plot.png&#34;</span><span class=p>)</span>  <span class=c1># Save plot to file</span>
+</span></span><span class=line><span class=cl><span class=n>plt</span><span class=o>.</span><span class=n>show</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=execution-times>Execution Times</h3><div class=table-wrapper><table><thead><tr><th>Matrix Size</th><th>C Time (s)</th><th>Python Time (s)</th><th>Speed Ratio</th></tr></thead><tbody><tr><td>5x5</td><td>0.000003</td><td>0.000012</td><td>4.0x</td></tr><tr><td>10x10</td><td>0.000007</td><td>0.000062</td><td>8.9x</td></tr><tr><td>50x50</td><td>0.00042</td><td>0.005062</td><td>12.1x</td></tr><tr><td>100x100</td><td>0.0030</td><td>0.037920</td><td>12.6x</td></tr><tr><td>500x500</td><td>0.375</td><td>4.542135</td><td>12.1x</td></tr><tr><td>1000x1000</td><td>2.824</td><td>36.586664</td><td>13.0x</td></tr></tbody></table></div><h3 id=analysis>Analysis</h3><p>The C implementation demonstrates significantly better performance, as expected for a compiled language. Several factors contribute to this difference. First, C uses <strong>static typing</strong>, which eliminates the overhead of dynamic type checking present in Python. Additionally, C provides <strong>direct memory access</strong>, allowing it to manage memory allocation without the automatic memory management and garbage collection overhead seen in Python. Another major factor is Python’s <strong>Global Interpreter Lock (GIL)</strong>, which restricts its ability to fully utilize multi-threading, particularly affecting computationally intensive tasks. Furthermore, Python relies on higher-level abstractions for its built-in data structures, such as lists, which are not optimized for numerical computations. While libraries like NumPy improve performance, pure Python remains inefficient for such operations.</p><h2 id=conclusion>Conclusion</h2><p>This study highlights the significant performance differences between compiled (C) and interpreted (Python) languages in numerical computations. The key takeaways from this analysis are that we successfully implemented matrix multiplication in both C and Python, enabling a direct performance comparison. Markdown was used to document and present results. While Python is convenient for development, it suffers from runtime overhead.</p><h2 id=references>References</h2></section><footer class=article-footer><section class=article-tags><a href=/my-new-site/tags/documentation/>Documentation</a>
+<a href=/my-new-site/tags/markdown/>Markdown</a>
+<a href=/my-new-site/tags/python/>Python</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section><section class=article-lastmod><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>Last updated on Apr 23, 2025 00:00 UTC</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/><div class=article-image><img src=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4.d008a7980bf3e75c8e841e9311a945cd_hu_6cef1efd653baa3.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 4 - Developing an Application with the Aid of LLM" data-hash="md5-0AinmAvz51yOhB6TEalFzQ=="></div><div class=article-details><h2 class=article-title>Assignment 4 - Developing an Application with the Aid of LLM</h2></div></a></article><article class=has-image><a href=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/><div class=article-image><img src=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3.483610db40e2c64662f4e0f5c7be8554_hu_9b1f3b822052ae50.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 3 - Deployment and Integration of LLM" data-hash="md5-SDYQ20DixkZi9OD1x76FVA=="></div><div class=article-details><h2 class=article-title>Assignment 3 - Deployment and Integration of LLM</h2></div></a></article><article class=has-image><a href=/my-new-site/p/assignment-2/><div class=article-image><img src=/my-new-site/p/assignment-2/cover2.840df3ef0636660a9a5d059cbfbf25b1_hu_47d6bbe73722278.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 2 - Static Personal Blog Website" data-key=assignment-2 data-hash="md5-hA3z7wY2ZgqaXQWcv78lsQ=="></div><div class=article-details><h2 class=article-title>Assignment 2 - Static Personal Blog Website</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//software-basics-safbee.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2025 Basics of Software Technology Course Website</section><section class=powerby>Made with 💻, ☕, and a sprinkle of late-night inspiration ✨<br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/my-new-site/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
