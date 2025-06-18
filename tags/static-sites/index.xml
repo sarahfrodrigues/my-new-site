@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Static Sites on Basics of Software Technology Course Website</title><link>https://sarahfrodrigues.github.io/my-new-site/tags/static-sites/</link><description>Recent content in Static Sites on Basics of Software Technology Course Website</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 23 Apr 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://sarahfrodrigues.github.io/my-new-site/tags/static-sites/index.xml" rel="self" type="application/rss+xml"/><item><title>Assignment 2 - Static Personal Blog Website</title><link>https://sarahfrodrigues.github.io/my-new-site/p/assignment-2/</link><pubDate>Wed, 23 Apr 2025 00:00:00 +0000</pubDate><guid>https://sarahfrodrigues.github.io/my-new-site/p/assignment-2/</guid><description>&lt;img src="https://sarahfrodrigues.github.io/my-new-site/p/assignment-2/cover2.jpg" alt="Featured image of post Assignment 2 - Static Personal Blog Website" />&lt;h2 id="introduction-to-static-sites">Introduction to Static Sites
+&lt;/h2>&lt;p>Static websites consist of fixed content delivered to users exactly as stored, unlike dynamic websites that generate content &lt;em>on-the-fly&lt;/em>. Benefits include:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Performance&lt;/strong>: Faster load times with pre-built pages&lt;/li>
+&lt;li>&lt;strong>Security&lt;/strong>: Reduced attack surface with no server-side processing&lt;/li>
+&lt;li>&lt;strong>Scalability&lt;/strong>: Easier to handle traffic spikes&lt;/li>
+&lt;li>&lt;strong>Cost-effectiveness&lt;/strong>: Lower hosting requirements&lt;/li>
+&lt;/ul>
+&lt;h3 id="key-advantages-of-static-sites">Key Advantages of Static Sites
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>Feature&lt;/th>
+&lt;th>Benefit&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>⚡ &lt;strong>Performance&lt;/strong>&lt;/td>
+&lt;td>Pre-built pages load instantly with minimal server processing&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>🔒 &lt;strong>Security&lt;/strong>&lt;/td>
+&lt;td>No database or server-side scripts reduces attack vectors&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>📈 &lt;strong>Scalability&lt;/strong>&lt;/td>
+&lt;td>Easily handles traffic spikes with simple file serving&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>💰 &lt;strong>Cost&lt;/strong>&lt;/td>
+&lt;td>Can be hosted on low-cost or free platforms like GitHub Pages&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>🔄 &lt;strong>Versioning&lt;/strong>&lt;/td>
+&lt;td>Content is file-based, making it ideal for Git workflows&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;blockquote>
+&lt;p>&lt;strong>Note:&lt;/strong> While static sites are excellent for content that doesn&amp;rsquo;t change frequently, they can be enhanced with JavaScript for dynamic functionality when needed.&lt;/p>&lt;/blockquote>
+&lt;h2 id="why-hugo">Why Hugo?
+&lt;/h2>&lt;p>Hugo is a modern static site generator written in Go, offering:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Blazing fast build times&lt;/strong> (often &amp;lt;1ms per page)&lt;/li>
+&lt;li>&lt;strong>Rich theming system&lt;/strong> with hundreds of community themes&lt;/li>
+&lt;li>&lt;strong>Flexible content organization&lt;/strong> with sections and taxonomies&lt;/li>
+&lt;li>&lt;strong>Built-in development server&lt;/strong> with live reload&lt;/li>
+&lt;li>&lt;strong>Markdown-based content&lt;/strong> with front matter support&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation-guide">Installation Guide
+&lt;/h2>&lt;h3 id="windows-installation">Windows Installation
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Download the Extended version&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Visit &lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>Hugo Releases&lt;/a> and look for the latest version&lt;/li>
+&lt;li>Under &amp;ldquo;Assets&amp;rdquo;, download &lt;code>hugo_extended_*.msi&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Run the installer&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>Double-click the downloaded &lt;code>.msi&lt;/code> file&lt;/li>
+&lt;li>Follow the installation wizard (recommend keeping default options)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Verify installation&lt;/strong>:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="n">hugo&lt;/span> &lt;span class="n">version&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">You should see output like hugo v0.xxx windows/amd64 Extended confirming the Extended build is installed.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">## Project Setup
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">1. **Initialize Your Site**
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">```bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo new site my-blog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cd my-blog
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Once its done a directory structure is created:
+my-blog/
+├── archetypes/
+├── assets/
+├── content/
+├── data/
+├── layouts/
+├── static/
+├── themes/
+└── config.yaml&lt;/p>
+&lt;ol start="2">
+&lt;li>&lt;strong>Add a Theme&lt;/strong>
+Many themes can be choosen in &lt;a class="link" href="https://themes.gohugo.io/" target="_blank" rel="noopener"
+>https://themes.gohugo.io/&lt;/a> that can be downloaded. For this project i choosed to use the stack theme&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git submodule add https://github.com/CaiJimmy/hugo-theme-stack themes/stack
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Add to config.toml:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;stack&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>&lt;strong>Configure Basic Settings&lt;/strong>
+Edit config.toml with essential parameters:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="nx">baseURL&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;https://yourusername.github.io/&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">languageCode&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;en-us&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">title&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;My Personal Blog&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="content-creation">Content Creation
+&lt;/h2>&lt;h3 id="creating-posts">Creating Posts
+&lt;/h3>&lt;p>Generate a new post:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new posts/assignment-1.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Example post structure:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">title: &amp;#34;Assignment 1: Static Site Setup&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">date: 2025-04-23T15:30:00Z
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">draft: false
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tags: [&amp;#39;Hugo&amp;#39;, &amp;#39;Static Sites&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">categories: [&amp;#39;Assignments&amp;#39;]
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">description: &amp;#34;Initial setup of my static blog using Hugo&amp;#34;
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">---
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">## Introduction
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="gu">&lt;/span>Content goes here...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="additional-pages">Additional Pages
+&lt;/h3>&lt;p>Create an about page:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new about.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="github-pages-deployment">GitHub Pages Deployment
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>Create a GitHub repository named yourusername.github.io&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Add remote and push:&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git remote add origin git@github.com:yourusername/yourusername.github.io.git
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push -u origin main
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ol start="3">
+&lt;li>Enable GitHub Pages in repository settings (use gh-pages branch)&lt;/li>
+&lt;/ol>
+&lt;h2 id="version-control">Version Control
+&lt;/h2>&lt;p>To do the version control, I used Git to track and manage the progress of my static blog website. This ensured that every change was recorded, recoverable, and well-documented throughout the development process.&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git add .
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git commit -m &lt;span class="s2">&amp;#34;Add Stack theme and configure base settings&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git push origin main
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This were the key commits and changes made during the development of the static blog website.&lt;/p>
+&lt;h3 id="-initial-commit">✅ Initial Commit
+&lt;/h3>&lt;ul>
+&lt;li>🧱 Establishes the foundational structure of the project.&lt;/li>
+&lt;li>🛠️ Includes the basic Hugo setup and essential configuration files.&lt;/li>
+&lt;li>🌱 Serves as a clean starting point for all future development.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="-assignment-1-completed">📝 Assignment 1 (Completed)
+&lt;/h3>&lt;ul>
+&lt;li>✍️ Adds specific content and analysis for Assignment 1.&lt;/li>
+&lt;li>📄 Includes the Markdown post file and related media assets.&lt;/li>
+&lt;li>🔄 Enables easy rollback or isolation of this content if needed.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="-assignment-2-in-progress">🚧 Assignment 2 (In Progress)
+&lt;/h3>&lt;ul>
+&lt;li>📌 Creates the draft structure for Assignment 2 post.&lt;/li>
+&lt;li>🗂️ Organizes Markdown content and placeholders for upcoming edits.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="-sidebar-configuration">🎨 Sidebar Configuration
+&lt;/h3>&lt;ul>
+&lt;li>🧩 Customizes the sidebar layout and user interface.&lt;/li>
+&lt;li>🐝 Adds emoji and inspirational quote as subtitle.&lt;/li>
+&lt;li>🧭 Modifies navigation and theme layout for a more personalized touch.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="-assignments-3--4-draft-setup">🔜 Assignments 3 &amp;amp; 4 (Draft Setup)
+&lt;/h3>&lt;ul>
+&lt;li>🗓️ Prepares draft pages for future assignments.&lt;/li>
+&lt;li>📚 Establishes a consistent structure and naming convention.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="-documentation-draft">📖 Documentation Draft
+&lt;/h3>&lt;ul>
+&lt;li>📝 Begins explanation of the project setup and configuration process.&lt;/li>
+&lt;li>📌 Includes markdown usage, theme setup, and development tips.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="-about-page-configuration">👤 About Page Configuration
+&lt;/h3>&lt;ul>
+&lt;li>📄 Creates a static &amp;ldquo;About Me&amp;rdquo; page.&lt;/li>
+&lt;li>🧬 Adds biography and academic background.&lt;/li>
+&lt;li>🌟 Important page that might be updated frequently as the site evolves.&lt;/li>
+&lt;/ul></description></item></channel></rss>

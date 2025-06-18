@@ -1,0 +1,368 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="This assignment involves the design and development of a software application aligned with your academic or research focus. Large language models (LLMs) are to be leveraged throughout the development process to enhance productivity and problem-solving. The final software must be compiled into an executable, demonstrating practical application."><title>Assignment 4 - Developing an Application with the Aid of LLM</title><link rel=canonical href=https://sarahfrodrigues.github.io/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/><link rel=stylesheet href=/my-new-site/scss/style.min.946cca6c6259ef94ac55abfae7c7bf3291ea3ed5eea17ef77500b257217c6710.css><meta property='og:title' content="Assignment 4 - Developing an Application with the Aid of LLM"><meta property='og:description' content="This assignment involves the design and development of a software application aligned with your academic or research focus. Large language models (LLMs) are to be leveraged throughout the development process to enhance productivity and problem-solving. The final software must be compiled into an executable, demonstrating practical application."><meta property='og:url' content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/'><meta property='og:site_name' content='Basics of Software Technology Course Website'><meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:tag' content='LLM'><meta property='article:tag' content='Problem-solving'><meta property='article:published_time' content='2025-06-11T00:00:00+00:00'><meta property='article:modified_time' content='2025-06-11T00:00:00+00:00'><meta property='og:image' content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4.jpg'><meta name=twitter:title content="Assignment 4 - Developing an Application with the Aid of LLM"><meta name=twitter:description content="This assignment involves the design and development of a software application aligned with your academic or research focus. Large language models (LLMs) are to be leveraged throughout the development process to enhance productivity and problem-solving. The final software must be compiled into an executable, demonstrating practical application."><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content='https://sarahfrodrigues.github.io/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4.jpg'><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/my-new-site/><img src=/my-new-site/img/avatar_hu_297d86356ca13e78.png width=300 height=302 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>👽</span></figure><div class=site-meta><h1 class=site-name><a href=/my-new-site>Basics of Software Technology Course Website</a></h1><h2 class=site-description>“The scariest moment is always just before you start.” ― Stephen King</h2></div></header><ol class=menu-social><li><a href=https://github.com/sarahfrodrigues target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href=https://www.linkedin.com/in/sarah-frizera-rodrigues/ target=_blank title=LinkedIn rel=me><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/my-new-site/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/my-new-site/about/><svg class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+<span>About</span></a></li><li><a href=/my-new-site/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/my-new-site/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span></li></ol></li></ol></aside><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#thesis-problem-statement>Thesis Problem Statement</a></li><li><a href=#research-objectives>Research Objectives</a></li><li><a href=#methodology>Methodology</a></li></ol><ol><li><a href=#acronym-handling>Acronym Handling</a><ol><li><a href=#implementation>Implementation</a></li><li><a href=#performance-evaluation>Performance evaluation</a></li></ol></li><li><a href=#causal-relation-extraction-and-dag-construction>Causal Relation Extraction and DAG Construction</a><ol><li><a href=#implementation-1>Implementation</a></li><li><a href=#exemple-of-usage>Exemple of usage</a></li><li><a href=#advantages-of-the-llm-approach>Advantages of the LLM Approach</a></li></ol></li></ol></nav></div></section></aside><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/><img src=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4_hu_5840caab98e2c9b3.jpg srcset="/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4_hu_5840caab98e2c9b3.jpg 800w, /my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/cover4_hu_3457209cae468f46.jpg 1600w" width=800 height=1422 loading=lazy alt="Featured image of post Assignment 4 - Developing an Application with the Aid of LLM"></a></div><div class=article-details><header class=article-category><a href=/my-new-site/categories/assignment/>Assignment</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/my-new-site/p/assignment-4-developing-an-application-with-the-aid-of-llm/>Assignment 4 - Developing an Application with the Aid of LLM</a></h2><h3 class=article-subtitle>This assignment involves the design and development of a software application aligned with your academic or research focus. Large language models (LLMs) are to be leveraged throughout the development process to enhance productivity and problem-solving. The final software must be compiled into an executable, demonstrating practical application.</h3></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Jun 11, 2025</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>11 minute read</time></div></footer></div></header><section class=article-content><h1 id=background-my-research-topic>Background: My research topic</h1><p>Despite a significant decline in aviation fatal accident rates since the 1960s, recent fluctuations—such as the increase in total fatal accidents in 2024—highlight that aviation safety remains a critical concern. Effective risk management plays a foundational role in safety and relies on the timely and accurate identification of hazards.</p><p><img src=/my-new-site/images/Yearly_fatal_total.png loading=lazy alt="Chart showing a general downward trend in fatal aviation accidents from 1990 to 2023. Data source: Airbus"></p><p><small>Figure1: Yearly total fatal accidents showing a general downward trend in fatal aviation accidents from 1990 to 2023. Data source:<a class=link href=https://accidentstats.airbus.com/fatal-accidents/ target=_blank rel=noopener>AIRBUS</a></small></p><p>Accident and incident reports, such as those maintained by the National Transportation Safety Board (<a class=link href=https://carol.ntsb.gov/ target=_blank rel=noopener>NTSB</a>) and the Aviation Safety Reporting System (<a class=link href=https://akama.arc.nasa.gov/ASRSDBOnline/QueryWizard_Filter.aspx target=_blank rel=noopener>ASRS</a>), serve as essential sources of information. These repositories contain rich qualitative narratives describing events and contributing factors. However, the unstructured nature of this textual data poses a major challenge for automated processing, limiting the scalability and consistency of insights derived from it.</p><h2 id=thesis-problem-statement>Thesis Problem Statement</h2><p>The aviation industry faces challenges in quickly analyzing and responding to incidents despite safety advancements.</p><p>Probabilistic risk assessment (PRA) is essential for hazard identification, but its automated large-scale implementation is deprived by the difficulty of processing unstructured data in accident reports.</p><p>Current methods often fail to identify causal relationships from text, leading to incomplete, inaccurate, or overly simplistic risk models that are unable to reflect the complexity of aviation accidents.</p><h2 id=research-objectives>Research Objectives</h2><ul><li>Enhance keyword and feature extraction techniques from accident reports.</li><li>Improve the identification of causal relationships between contributing factors.</li><li>Construct causal models to gain a deeper understanding of accident mechanisms.</li><li>Implement probabilistic reasoning through Bayesian networks.</li></ul><h2 id=methodology>Methodology</h2><ol><li><p><strong>Data Collection:</strong> Unstructured narrative reports from the NTSB and ASRS databases are used as the primary input.</p></li><li><p><strong>Text Preprocessing:</strong> This includes steps such as tokenization, lowercasing, punctuation removal, acronym expansion, and keyword detection.</p></li><li><p><strong>Topic Modeling:</strong> Techniques such as Latent Dirichlet Allocation (LDA) are applied to identify recurring themes and contextual clusters within the corpus.</p></li><li><p><strong>Causal Relationship Extraction:</strong> Rule based or deep learning Techniques.</p></li><li><p><strong>Graph Construction:</strong> Extracted causal pairs are assembled into a Directed Acyclic Graph (DAG), representing the directional relationships between contributing factors.</p></li><li><p><strong>Bayesian Network Modeling:</strong> The DAG is then adapted into a probabilistic structure to perform reasoning under uncertainty and support safety decision-making.</p></li><li><p><strong>Validation and Optimization:</strong> The resulting models are evaluated for accuracy, completeness, and practical relevance to aviation safety experts.</p></li><li><p>Present support decision-making in aviation safety through enhanced risk analysis and hazard identification.</p></li></ol><h1 id=llm-based-application-modules>LLM-Based Application Modules</h1><p>Large Language Models (LLMs) serve as the core reasoning components in two key tasks: acronym expansion and causal relation extraction. These tasks are detailed below. The code can be found at <a class=link href=https://github.com/sarahfrodrigues/assignment4 target=_blank rel=noopener>Github</a>.</p><h2 id=acronym-handling>Acronym Handling</h2><p>Aviation narratives are often filled with domain-specific acronyms (e.g., “ATC,” “VMC”) whose meanings vary depending on context. Our approach first identifies acronyms enclosed in parentheses using regular expressions and then applies heuristics to infer their likely full forms based on nearby capitalized words and initial-letter patterns.
+However, a single acronym may have multiple valid expansions. For instance, &ldquo;ACM&rdquo; can refer to Acceptable Means of Compliance or Airspace Control Measures depending on the operational context. To resolve this ambiguity, a local Large Language Model (LLM) is leverage, such as Mistral, for disambiguation.</p><h3 id=implementation>Implementation</h3><p>The system constructs a targeted prompt that presents the LLM with:</p><ul><li><p>the surrounding sentence (context),</p></li><li><p>the ambiguous acronym (token), and</p></li><li><p>a list of possible expansions (candidates).</p></li></ul><p>The LLM evaluates which candidate best fits the context and returns the most appropriate full form. This disambiguation step ensures that acronyms are expanded meaningfully and precisely, reducing the risk of incorrect data interpretation in downstream tasks such as causal relationship extraction or topic modeling.</p><p>The updated acronym map is continuously enriched by storing newly discovered expansions, enhancing the system&rsquo;s adaptability and performance over time. This hybrid design—combining heuristic rules with LLM reasoning—enables accurate, context-sensitive acronym expansion at scale, which is essential for processing large volumes of aviation safety reports.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-csharp data-lang=csharp><span class=line><span class=cl><span class=na>[Input Text]</span> 
+</span></span><span class=line><span class=cl>   <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=na>[Regex Acronym Detection]</span>
+</span></span><span class=line><span class=cl>   <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=na>[Heuristic Candidate Generation]</span>
+</span></span><span class=line><span class=cl>   <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=na>[LLM Disambiguation]</span>
+</span></span><span class=line><span class=cl>   <span class=err>↓</span>
+</span></span><span class=line><span class=cl><span class=na>[Store in Acronym Map]</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>Prompt Design</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>prompt</span> <span class=o>=</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=sa>f</span><span class=s2>&#34;You are given a sentence and a token. The token is ambiguous and could mean more than one thing.</span><span class=se>\n</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=sa>f</span><span class=s2>&#34;Your job is to choose the correct meaning based on the context.</span><span class=se>\n\n</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=sa>f</span><span class=s2>&#34;Context sentence: </span><span class=se>\&#34;</span><span class=si>{</span><span class=n>context</span><span class=si>}</span><span class=se>\&#34;\n</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=sa>f</span><span class=s2>&#34;Token: </span><span class=si>{</span><span class=n>token</span><span class=si>}</span><span class=se>\n</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=sa>f</span><span class=s2>&#34;Choices: </span><span class=si>{</span><span class=s1>&#39;, &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>candidates</span><span class=p>)</span><span class=si>}</span><span class=se>\n\n</span><span class=s2>&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=sa>f</span><span class=s2>&#34;Which meaning fits best in the sentence? Reply with ONLY the best choice, no explanation.&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=performance-evaluation>Performance evaluation</h3><p>To evaluate the accuracy of acronym extraction and disambiguation in aviation safety texts, we conducted a series of controlled test cases.</p><ol><li>Acronym Extraction Evaluation</li></ol><p>A total of 25 sentences were curated, each containing one aviation-specific acronym alongside its correct expansion. These were used to test the system’s ability to detect and map acronyms in structured narrative formats, such as those commonly found in aviation safety reports.</p><p>Example Test Case:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Test cases for acronym extraction evaluation</span>
+</span></span><span class=line><span class=cl><span class=n>test_cases</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;The Aircraft Communications Addressing and Reporting System (ACARS) provides real-time communication between pilots and ground stations.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=p>{</span><span class=s2>&#34;ACARS&#34;</span><span class=p>:</span> <span class=s2>&#34;Aircraft Communications Addressing and Reporting System&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;The Airworthiness Directive (AD) requires immediate action on all Boeing 737 models.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=p>{</span><span class=s2>&#34;AD&#34;</span><span class=p>:</span> <span class=s2>&#34;Airworthiness Directive&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;The Emergency Response Plan (ERP) was activated following the runway incursion.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=p>{</span><span class=s2>&#34;ERP&#34;</span><span class=p>:</span> <span class=s2>&#34;Emergency Response Plan&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;Sensitive components are protected from Electrostatic Discharge (ESD) during assembly.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=p>{</span><span class=s2>&#34;ESD&#34;</span><span class=p>:</span> <span class=s2>&#34;Electrostatic Discharge&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;The Estimated Time of Arrival (ETA) for the flight is 14:35 local time.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=p>{</span><span class=s2>&#34;ETA&#34;</span><span class=p>:</span> <span class=s2>&#34;Estimated Time of Arrival&#34;</span><span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><p>After running the full set of test cases, the system achieved the following performance metrics:</p><ul><li>Precision: 0.85<ul><li>indicates that the majority of the acronyms identified by the system were correctly matched with their true expansions.</li></ul></li><li>Recall: 0.77<ul><li>shows that some acronyms present in the text were missed or improperly mapped.</li></ul></li><li>F1 Score: 0.81<ul><li>reflects a balanced measure of overall performance.</li></ul></li></ul><ol start=2><li>Acronym Disambiguation Evaluation</li></ol><p>The next stage tested the system’s ability to disambiguate acronyms that have more than one potential meaning, depending on context. This was achieved by:</p><ul><li><p>Providing a setup sentence in which the acronym is explicitly defined (e.g., “The Acceptable Means of Compliance (ACM) was published.”).</p></li><li><p>Following this with a target sentence that reuses the acronym without expansion.</p></li><li><p>Asking the system to infer the correct expansion using a local Large Language Model (LLM) and a set of candidate meanings.</p></li></ul><p>Example Test Case:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=c1># Test cases for acronym extraction evaluation</span>
+</span></span><span class=line><span class=cl><span class=n>disambiguation_tests</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;setup&#34;</span><span class=p>:</span> <span class=s2>&#34;The Acceptable Means of Compliance (ACM) was published.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;Pilots must comply with ACM before flight.&#34;</span><span class=p>,</span>  <span class=c1># should expand to Acceptable Means of Compliance</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=s2>&#34;Acceptable Means of Compliance&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;setup&#34;</span><span class=p>:</span> <span class=s2>&#34;The Airspace Control Measures (ACM) were defined by the military.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;ACM were enforced during the exercise.&#34;</span><span class=p>,</span>  <span class=c1># should expand to Airspace Control Measures</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=s2>&#34;Airspace Control Measures&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;setup&#34;</span><span class=p>:</span> <span class=s2>&#34;The Emergency Response Plan (ERP) was activated.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;After the crash, ERP was immediately launched.&#34;</span><span class=p>,</span>  <span class=c1># should expand to Emergency Response Plan</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=s2>&#34;Emergency Response Plan&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;setup&#34;</span><span class=p>:</span> <span class=s2>&#34;The Estimated Time of Arrival (ETA) was confirmed.&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;text&#34;</span><span class=p>:</span> <span class=s2>&#34;The ETA for Flight 8701 is now 15:45.&#34;</span><span class=p>,</span>  <span class=c1># should expand to Estimated Time of Arrival</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;expected&#34;</span><span class=p>:</span> <span class=s2>&#34;Estimated Time of Arrival&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>]</span>
+</span></span></code></pre></td></tr></table></div></div><p><strong>Summary of Results:</strong></p><p>Out of 10 disambiguation test cases:</p><p>✅ 9 acronyms were correctly disambiguated.</p><p>❌ 1 acronyms were incorrectly expanded or left unresolved.</p><p><strong>Examples of correct matches include:</strong></p><ul><li><p>“ACM were enforced during the exercise.” → Airspace Control Measures</p></li><li><p>“ETA for Flight 8701 is now 15:45.” → Estimated Time of Arrival</p></li><li><p>“FBI agents arrived on the scene.” → Federal Bureau of Investigation</p></li></ul><p><strong>Failures included:</strong></p><ul><li>“Technicians wore grounding straps to prevent ESD.” → Expected: Electrostatic Discharge, but the expansion was not correctly substituted.</li></ul><p>These results indicate strong performance by the disambiguation module, particularly in cases where the context provides clear semantic clues. However, further refinement is needed to handle subtle or technical uses where context is sparse or ambiguous.</p><h2 id=causal-relation-extraction-and-dag-construction>Causal Relation Extraction and DAG Construction</h2><p>To automatically identify causal relationships between safety-related concepts described in narrative reports and represent them as a structured causal graph. The goal is to process text (e.g., accident reports, news, academic papers) and build a graph of “X causes Y” relationships only if those concepts are in a predefined list of keywords.</p><h3 id=implementation-1>Implementation</h3><p>The core idea is to process individual sentences, detect whether multiple relevant keywords co-occur, and extract cause-effect relations between them using a local LLM.</p><p><strong>Keyword Filtering</strong>
+Each sentence is scanned to identify the presence of predefined domain-specific keywords (e.g., “weather,” “runway,” “delay,” “crew fatigue”).</p><p><strong>Prompt Design</strong>
+If two or more keywords appear, the sentence is submitted to the LLM with a strict instruction prompt such as:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;Analyze this sentence to identify ALL DIRECT causal relationships between these keywords: {&#39;, &#39;.join(sent_keywords)}.
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Follow these rules ABSOLUTELY:
+</span></span></span><span class=line><span class=cl><span class=s2>1. Extract EVERY instance where Keyword X directly causes/influences Keyword Y
+</span></span></span><span class=line><span class=cl><span class=s2>2. For chain relationships (A causes B causes C), extract BOTH A-&gt;B AND B-&gt;C
+</span></span></span><span class=line><span class=cl><span class=s2>3. For multiple causes (A because B and C), extract BOTH B-&gt;A AND C-&gt;A
+</span></span></span><span class=line><span class=cl><span class=s2>4. For multiple effects (B and C because A), extract BOTH A-&gt;B AND A-&gt;C
+</span></span></span><span class=line><span class=cl><span class=s2>5. Output EXACTLY one &#34;KeywordX -&gt; KeywordY&#34; per line, no additional text
+</span></span></span><span class=line><span class=cl><span class=s2>6. Use ONLY exact keyword matches from the provided list
+</span></span></span><span class=line><span class=cl><span class=s2>7. PRESERVE NEGATIONS (e.g., &#34;not A causes B&#34; yields A-&gt;B)
+</span></span></span><span class=line><span class=cl><span class=s2>8. IGNORE any relationships not explicitly stated in the sentence
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Examples:
+</span></span></span><span class=line><span class=cl><span class=s2>Sentence: &#34;A because B and C. C caused E and D.&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>Keywords: [A, B, C, D, E]
+</span></span></span><span class=line><span class=cl><span class=s2>Output:
+</span></span></span><span class=line><span class=cl><span class=s2>B -&gt; A
+</span></span></span><span class=line><span class=cl><span class=s2>C -&gt; A
+</span></span></span><span class=line><span class=cl><span class=s2>C -&gt; E
+</span></span></span><span class=line><span class=cl><span class=s2>C -&gt; D
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Sentence: &#34;Flooding occurred due to heavy rain and poor drainage, which then caused crop damage.&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>Keywords: [rain, drainage, flood, crop]
+</span></span></span><span class=line><span class=cl><span class=s2>Output:
+</span></span></span><span class=line><span class=cl><span class=s2>rain -&gt; flood
+</span></span></span><span class=line><span class=cl><span class=s2>drainage -&gt; flood
+</span></span></span><span class=line><span class=cl><span class=s2>flood -&gt; crop
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>---
+</span></span></span><span class=line><span class=cl><span class=s2>Analyze THIS sentence:
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;</span><span class=si>{sent}</span><span class=s2>&#34;
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>Output ONLY the causal pairs (no other text):
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;&#34;&#34;</span>
+</span></span></code></pre></td></tr></table></div></div><p>The model is set its temperature to low (0.2) to reduce randomness.</p><p>The model will return up to 300 tokens of plain causal statements (e.g., X -> Y).
+Takes documents (as lists of tokens) and joins them into sentences.</p><p><strong>Output Processing</strong>
+The model output is cleaned and normalized:</p><ul><li><p>Keyword variants are matched against the predefined keyword list.</p></li><li><p>Only exact or partial matches are retained.</p></li><li><p>Valid causal pairs are stored with frequency counts.</p></li></ul><p>For instance, if “crop damage” is detected but only “crop” is in the keyword list, the system maps the phrase to “crop” to preserve consistency.</p><p><strong>Graph Construction</strong>
+The extracted causal pairs are added to a Directed Acyclic Graph (DAG) structure:</p><ul><li><p>Each node represents a concept (e.g., “weather” or “fatigue”).</p></li><li><p>Each edge represents a directional cause-effect relation (e.g., “weather” → “delay”).</p></li></ul><p>Edges can carry weights indicating how often a particular causal link appeared across different reports.</p><h3 id=exemple-of-usage>Exemple of usage</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>&#34;__main__&#34;</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=c1># Aviation safety keywords</span>
+</span></span><span class=line><span class=cl>    <span class=n>keywords</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;crack&#39;</span><span class=p>,</span> <span class=s1>&#39;passenger&#39;</span><span class=p>,</span> <span class=s1>&#39;turbulence&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;attendant&#39;</span><span class=p>,</span> <span class=s1>&#39;seat&#39;</span><span class=p>,</span> <span class=s1>&#39;taxi&#39;</span><span class=p>,</span> <span class=s1>&#39;crew&#39;</span><span class=p>,</span> <span class=s1>&#39;fuel&#39;</span><span class=p>,</span> <span class=s1>&#39;power&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;engine&#39;</span><span class=p>,</span> <span class=s1>&#39;fire&#39;</span><span class=p>,</span> <span class=s1>&#39;weather&#39;</span><span class=p>,</span> <span class=s1>&#39;runway&#39;</span><span class=p>,</span> <span class=s1>&#39;controller&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;traffic&#39;</span><span class=p>,</span> <span class=s1>&#39;captain&#39;</span><span class=p>,</span> <span class=s1>&#39;pushback&#39;</span><span class=p>,</span> <span class=s1>&#39;nose&#39;</span><span class=p>,</span> <span class=s1>&#39;door&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;gear&#39;</span><span class=p>,</span> <span class=s1>&#39;landing&#39;</span><span class=p>,</span> <span class=s1>&#39;blade&#39;</span><span class=p>,</span> <span class=s1>&#39;takeoff&#39;</span><span class=p>,</span> 
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;pilot&#39;</span><span class=p>,</span> <span class=s1>&#39;aircraft&#39;</span><span class=p>,</span> <span class=s1>&#39;collision&#39;</span><span class=p>,</span> <span class=s1>&#39;landing&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=c1># Sample aviation incident reports (tokenized)</span>
+</span></span><span class=line><span class=cl>    <span class=n>documents</span> <span class=o>=</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;The engine failure caused loss of power during takeoff&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Pilot fatigue contributed to runway excursion&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Severe weather led to turbulence and passenger injuries&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Crack in the blade resulted in engine fire&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Controller poor communication cause pilot bad judment leading to collision&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Improper pushback procedure caused nose gear damage&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Fuel contamination led to engine power loss and emergency landing&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Controller error resulted in traffic conflict on taxiway&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Cabin door issue during flight led to emergency dlanding&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Poor weather conditions contributed to collision with terrain&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>]</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Step 1: Extract causal relations from aviation reports</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Extracting causal relations from aviation reports...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>causal_relations</span> <span class=o>=</span> <span class=n>extract_causal_relations</span><span class=p>(</span><span class=n>documents</span><span class=p>,</span> <span class=n>keywords</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Discovered aviation safety relations:&#34;</span><span class=p>,</span> <span class=nb>dict</span><span class=p>(</span><span class=n>causal_relations</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Step 2: Build the aviation safety network</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Building aviation safety network...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span> <span class=o>=</span> <span class=n>build_custom_dag</span><span class=p>(</span><span class=n>causal_relations</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Step 3: Extract all causal paths in aviation context</span>
+</span></span><span class=line><span class=cl>    <span class=n>paths</span> <span class=o>=</span> <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>get_paths</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>Aviation Safety Causal Paths:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>path</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>paths</span><span class=p>,</span> <span class=mi>1</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>         <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>&#34;</span><span class=si>{</span><span class=n>i</span><span class=si>}</span><span class=s2>. </span><span class=si>{</span><span class=s1>&#39; → &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>path</span><span class=p>)</span><span class=si>}</span><span class=s2>&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Step 4: Visualize aviation safety network</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;Generating aviation safety visualization...&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>visualize_graphviz</span><span class=p>(</span><span class=s1>&#39;aviation_safety_before&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>Aviation Safety Graph Structure:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Step 5: Insert aviation-specific nodes</span>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>insert_node</span><span class=p>(</span><span class=n>child</span><span class=o>=</span><span class=s1>&#39;weather&#39;</span><span class=p>,</span> <span class=n>cause_name</span><span class=o>=</span><span class=s1>&#39;meteorological&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>After inserting &#39;meteorological&#39; as parent of &#39;weather&#39;:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>insert_node</span><span class=p>(</span><span class=n>parent</span><span class=o>=</span><span class=s1>&#39;pilot&#39;</span><span class=p>,</span> <span class=n>cause_name</span><span class=o>=</span><span class=s1>&#39;accident&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>After inserting &#39;accident&#39; as child of &#39;pilot&#39;:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Adding intermediate factor between pilot and accident</span>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>insert_node</span><span class=p>(</span><span class=n>parent</span><span class=o>=</span><span class=s1>&#39;pilot&#39;</span><span class=p>,</span> <span class=n>child</span><span class=o>=</span><span class=s1>&#39;accident&#39;</span><span class=p>,</span> <span class=n>cause_name</span><span class=o>=</span><span class=s1>&#39;judgment&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>After inserting &#39;judgment&#39; between &#39;pilot&#39; and &#39;accident&#39;:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Step 6: Remove a node</span>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>remove_node</span><span class=p>(</span><span class=n>node</span><span class=o>=</span><span class=s1>&#39;judgment&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>After deleting &#39;judgment&#39;:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># Additional aviation-specific analysis</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>Root causes in aviation system:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=o>.</span><span class=n>get_roots</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>Final outcomes in aviation incidents:&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=nb>print</span><span class=p>(</span><span class=n>safety_net_graph</span><span class=o>.</span><span class=n>get_leaves</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>safety_net_graph</span><span class=o>.</span><span class=n>visualize_graphviz</span><span class=p>(</span><span class=s1>&#39;aviation_safety_after&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p><img src=/my-new-site/images/aviation_safety_before.png loading=lazy alt="Figure 2: Directed Acyclic Graph built before insertion/deletion operations"></p><p><small>Figure 2: Directed Acyclic Graph built before insertion/deletion operations</small></p><p><img src=/my-new-site/images/aviation_safety_after.png loading=lazy alt="Figure 3: Directed Acyclic Graph built after insertion/deletion operations"></p><p><small>Figure 3: Directed Acyclic Graph built after insertion/deletion operations</small></p><h3 id=advantages-of-the-llm-approach>Advantages of the LLM Approach</h3><p>Traditional rule-based extraction methods rely on fixed rules (e.g., detecting words like “because,” “due to”) and struggle with complex sentence structures, especially when:</p><ul><li><p>Multiple causes or effects are described,</p></li><li><p>Relationships span multiple clauses,</p></li><li><p>Negations or uncertainties are involved.</p></li></ul><p>By contrast, the LLM can interpret nuanced linguistic patterns and deliver structured output from natural sentences without requiring hard-coded rules. It generalizes across variations in grammar, phrasing, and report writing styles.</p></section><footer class=article-footer><section class=article-tags><a href=/my-new-site/tags/llm/>LLM</a>
+<a href=/my-new-site/tags/problem-solving/>Problem-Solving</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span></section><section class=article-lastmod><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<span>Last updated on Jun 11, 2025 00:00 UTC</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>Related content</h2><div class=related-content><div class="flex article-list--tile"><article class=has-image><a href=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/><div class=article-image><img src=/my-new-site/p/assignment-3-deployment-and-integration-of-llm/cover3.483610db40e2c64662f4e0f5c7be8554_hu_9b1f3b822052ae50.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 3 - Deployment and Integration of LLM" data-hash="md5-SDYQ20DixkZi9OD1x76FVA=="></div><div class=article-details><h2 class=article-title>Assignment 3 - Deployment and Integration of LLM</h2></div></a></article><article class=has-image><a href=/my-new-site/p/assignment-1/><div class=article-image><img src=/my-new-site/p/assignment-1/cover1.f475d7b6d5e7a443b1558fd4d0d7a1fb_hu_9cce6f050da2c628.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 1 - Command Line & Documentation" data-key=assignment-1 data-hash="md5-9HXXttXnpEOxVY/U0Neh+w=="></div><div class=article-details><h2 class=article-title>Assignment 1 - Command Line & Documentation</h2></div></a></article><article class=has-image><a href=/my-new-site/p/assignment-2/><div class=article-image><img src=/my-new-site/p/assignment-2/cover2.840df3ef0636660a9a5d059cbfbf25b1_hu_47d6bbe73722278.jpg width=250 height=150 loading=lazy alt="Featured image of post Assignment 2 - Static Personal Blog Website" data-key=assignment-2 data-hash="md5-hA3z7wY2ZgqaXQWcv78lsQ=="></div><div class=article-details><h2 class=article-title>Assignment 2 - Static Personal Blog Website</h2></div></a></article></div></div></aside><div class=disqus-container><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//software-basics-safbee.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}()</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a></div><style>.disqus-container{background-color:var(--card-background);border-radius:var(--card-border-radius);box-shadow:var(--shadow-l1);padding:var(--card-padding)}</style><script>window.addEventListener("onColorSchemeChange",e=>{typeof DISQUS=="object"&&DISQUS.reset({reload:!0})})</script><footer class=site-footer><section class=copyright>&copy;
+2025 Basics of Software Technology Course Website</section><section class=powerby>Made with 💻, ☕, and a sprinkle of late-night inspiration ✨<br>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.30.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/my-new-site/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
