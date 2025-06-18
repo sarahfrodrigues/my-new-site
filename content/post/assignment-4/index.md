@@ -50,7 +50,7 @@ Current methods often fail to identify causal relationships from text, leading t
 8. Present support decision-making in aviation safety through enhanced risk analysis and hazard identification.
 
 # LLM-Based Application Modules 
-Large Language Models (LLMs) serve as the core reasoning components in two key tasks: acronym expansion and causal relation extraction. These tasks are detailed below.
+Large Language Models (LLMs) serve as the core reasoning components in two key tasks: acronym expansion and causal relation extraction. These tasks are detailed below. The code can be found at [Github](https://github.com/sarahfrodrigues/assignment4).
 
 ## Acronym Handling
 Aviation narratives are often filled with domain-specific acronyms (e.g., “ATC,” “VMC”) whose meanings vary depending on context. Our approach first identifies acronyms enclosed in parentheses using regular expressions and then applies heuristics to infer their likely full forms based on nearby capitalized words and initial-letter patterns.
